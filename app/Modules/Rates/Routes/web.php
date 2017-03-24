@@ -11,8 +11,6 @@
 |
 */
 
-Route::group(['prefix' => 'rates'], function() {
-    Route::get('/', function() {
-        dd('This is the Rates module index page. Build something great!');
-    });
+Route::group(['prefix' => config('cms.uri')], function () {
+    Route::resource('rates', 'Admin\IndexController');
 });

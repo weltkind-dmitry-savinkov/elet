@@ -17,7 +17,7 @@
         "arcanedev/localization": "*",
         "baum/baum": "~1.1",
         "mews/captcha": "~2.0",
-        "coderockr/php-query": "dev-master"
+        "bariew/phpquery": "^1.0"
 
 
     },
