@@ -11,8 +11,10 @@
 |
 */
 
-Route::group(['prefix' => 'leadership'], function() {
-    Route::get('/', function() {
-        dd('This is the Leadership module index page. Build something great!');
-    });
+Route::group(['prefix' => config('cms.uri')], function () {
+    Route::resource('/leadership', 'Admin\IndexController');
+    Route::delete(
+        'leadership/delete-upload/{id}/{field}',
+        'Admin\IndexController@deleteUpload'
+    )->name('admin.leadership.delete-upload');
 });
