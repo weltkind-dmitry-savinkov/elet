@@ -16,18 +16,9 @@
 
     <div class="col-md-6">
         {!! BootForm::select(
-            'region',
+            'region_id',
             trans('Область'),
-            [
-                'г.Бишкек',
-                'Чуйская область',
-                'Ошская область',
-                'Джалалабадская область',
-                'Талаская область',
-                'Иссык-Кульская область',
-                'Нарынская область',
-                'Баткенская область'
-            ]
+            $regions
         ) !!}
     </div>
 
@@ -44,25 +35,54 @@
     </div>
 
     <div class="col-md-6">
-        {!! BootForm::select(
-                'work_days',
-                trans('Дни работы'),
-                [
-                    'Пн',
-                    'Вт',
-                    'Ср',
-                    'Чт',
-                    'Пт',
-                    'Сб',
-                    'Вс'
-                ],
-                null,
-                ['multiple' => true, 'size' => 10]
-            )
-        !!}
+        <label for="work_days">{{trans('Дни работы')}}</label>
+        <div>
+            <select
+                class="form-control"
+                name="work_days[]"
+                multiple="multiple"
+                size="9"
+            >
+                @foreach($work_days as $index => $day)
+                    <option
+                        value="{{ $index }}"
+                        {{ in_array($index, $selected_workd_days) ? 'selected' : ''}}
+                    >
+                        {{ $day }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
     </div>
 
     <div class="col-md-12">
-        <div id="googleMap"></div>
+        <label for="" class="control-label">Положение на карте</label>
+        <div style="width: 100%; height: 400px" id="map"></div>
     </div>
+    {!! BootForm::hidden(
+            'lat',
+            $entity->lat ? $entity->lat : '',
+            ['id' => 'lat']
+        )
+    !!}
+
+    {!! BootForm::hidden(
+            'lng',
+            $entity->lat ? $entity->lat : '',
+            ['id' => 'lng']
+        )
+    !!}
 @endsection
+
+@push('js')
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAtkpXohTFtMdq1IgvRXedAqD0hEGcnSA">
+    </script>
+<script type="text/javascript" src="/js/GoogleMap.js"></script>
+<script type="text/javascript" src="/js/Branches.js"></script>
+@if($entity->lat && $entity->lng)
+<script type="text/javascript">
+    Branches.setMarker({{ $entity->lat }}, {{ $entity->lng }});
+</script>
+@endif
+@endpush
