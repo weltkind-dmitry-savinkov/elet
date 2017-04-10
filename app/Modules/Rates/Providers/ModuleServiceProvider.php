@@ -8,6 +8,8 @@ use App\Modules\Rates\RatesParser;
 
 use App\Modules\Rates\Models\Repository\Rate;
 
+use App\Modules\Rates\Http\ViewComposers\MainComposer;
+
 class ModuleServiceProvider extends ModuleProvider
 {
     public $module = 'rates';
@@ -28,5 +30,7 @@ class ModuleServiceProvider extends ModuleProvider
         $this->app->singleton('RateRepository', function () {
             return new Rate();
         });
+
+        $this->app->make('view')->composer('rates::main', MainComposer::class);
     }
 }

@@ -13,4 +13,12 @@
 
 Route::group(['prefix' => config('cms.uri')], function () {
     Route::resource('/credit', 'Admin\IndexController');
+    Route::delete(
+        'credit/delete-upload/{id}/{fied}',
+        'Admin\IndexController@deleteUpload'
+    )->name('admin.credit.delete-upload');
+});
+
+Route::group(['prefix' => 'credit'], function () {
+    Route::get('show/{id}', 'IndexController@show')->name('credit.show');
 });

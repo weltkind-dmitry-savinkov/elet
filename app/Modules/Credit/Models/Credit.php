@@ -10,4 +10,11 @@ use App\Models\Image;
 class Credit extends Model
 {
     use Sortable, Image;
+
+    private $imageField = 'icon';
+
+    public function imageField()
+    {
+        return $this->imageField;
+    }
 }
