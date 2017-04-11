@@ -261,5 +261,29 @@ $(document).ready(function() {
     }();
     formTooltip.events();
 
+    $('#calculateBtn').on('click', function () {
+        var amount = parseFloat($('#slider_summ_value').text());
+        var maturity = parseFloat($('#slider_time_value').text());
+        var rate     = parseFloat($('div.tabs-small__nav .tabs-small__tab_active').data('interest-rate'));
 
+        if (!amount) {
+            alert('Вы не указали сумму кредита');
+
+            return false;
+        }
+
+        if (!maturity) {
+            alert('Вы не указали срок кредита');
+
+            return false;
+        }
+
+        var annuityPayment      = CreditCalculator.annuityPayment(amount, rate, maturity);
+        var differentialPayment = CreditCalculator.differentialPayment(amount, rate, maturity);
+
+        annuityHtml         = CreditCalculator.renderTable(annuityPayment);
+        differentialPayment = CreditCalculator.renderTable(differentialPayment);
+
+        $.fancybox(annuityHtml, {'padding': 0, 'height': 380, 'minWidth': 1000})
+    });
 });

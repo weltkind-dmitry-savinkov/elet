@@ -31,6 +31,17 @@
         {!! BootForm::checkbox('active', trans('admin::fields.active'), 1) !!}
     </div>
 
+    <div class="col-md-6">
+        @include(
+            'admin::common.forms.image',
+            [
+                'entity'      => $entity,
+                'routePrefix' => $routePrefix,
+                'field'       => 'icon'
+            ]
+        )
+    </div>
+
     <div class="col-md-12">
         {!! BootForm::textarea(
                 'description',
