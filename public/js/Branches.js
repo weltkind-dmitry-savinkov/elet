@@ -5,7 +5,7 @@ var Branches = (function () {
         marker;
 
     return {
-        initMap: function () {
+        'initMap': function () {
             var mapParams   = {
             zoom: 7,
             center: GoogleMap.latLng(41.409, 74.652)
@@ -15,15 +15,28 @@ var Branches = (function () {
             GoogleMap.addListener('click', Branches.setMarkerHandler);
         },
 
-        setMarker: function (lat, lng) {
+        'setMarker': function (lat, lng) {
             GoogleMap.setMarker([lat, lng]);
         },
 
-        setMarkerHandler: function (event) {
+        'set': function (items) {
+            items        = JSON.parse(items);
+            var branches = items.data;
+
+            for (index in branches) {
+                GoogleMap.setMarker([branches[index]['lat'], branches[index]['lng']]);
+            }
+        },
+
+        'setMarkerHandler': function (event) {
             latElement.value = event.latLng.lat();
             lngElement.value = event.latLng.lng();
 
             GoogleMap.setMarker([event.latLng.lat(), event.latLng.lng()]);
+        },
+
+        'focus': function (lat, lng) {
+            GoogleMap.setCenter(lat, lng);
         }
     };
 })();

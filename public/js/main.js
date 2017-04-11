@@ -286,4 +286,28 @@ $(document).ready(function() {
 
         $.fancybox(annuityHtml, {'padding': 0, 'height': 380, 'minWidth': 1000})
     });
+
+    $('.list-affiliates__link').on('click', function () {
+        var $this = $(this),
+            lat   = $this.data('lat'),
+            lng   = $this.data('lng');
+
+        Branches.focus(lat, lng);
+
+        return false;
+    });
+
+    $('.affiliates__select select').on('change', function () {
+        var $selected = $(this).find(':selected'),
+            field     = $selected.data('field'),
+            value     = $selected.val(),
+            params    = {},
+            url;
+
+            params[field] = value;
+
+        url = Core.urlQs(window.location.href.split('?')[0], params);
+
+        window.location.href = url;
+    });
 });
