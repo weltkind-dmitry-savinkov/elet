@@ -53,15 +53,19 @@ var CreditCalculator = (function () {
                 stepMonth       = currentMonth,
                 stepYear        = currentYear,
                 amountPayment, monthPayment, interestPayment,
-                precentPayment, basicPayment, paymentInfo;
+                precentPayment, basicPayment, paymentInfo, m;
 
             rate          = rate / 100,
-            monthPayment  = CreditCalculator.annuityMonthlyPayment(amount, rate, maturity);
+            monthPayment  = CreditCalculator.annuityMonthlyPayment(
+                amount,
+                rate,
+                maturity
+            );
 
             amountPayment   = monthPayment * (maturity);
             interestPayment = amountPayment - amount;
 
-            for (var m = 1; m <= monthlyPayments; m++) {
+            for (m = 1; m <= monthlyPayments; m++) {
                 precentPayment   = principalAmount * rate / months;
                 basicPayment     = monthPayment - precentPayment;
                 principalAmount -= basicPayment;
@@ -76,8 +80,8 @@ var CreditCalculator = (function () {
 
                 calculation.push(paymentInfo);
 
-                if (stepMonth === 12) {
-                    stepMonth = 1;
+                if (stepMonth === 11) {
+                    stepMonth = 0;
                     stepYear++;
                 } else {
                     stepMonth++;
@@ -97,9 +101,11 @@ var CreditCalculator = (function () {
         'differentialPayment': function (amount, rate, maturity) {
             var monthsLeft      = maturity,
                 principalAmount = amount,
-                precentPayment, payment, dept, paymentInfo;
+                stepMonth       = currentMonth,
+                stepYear        = currentYear,
+                precentPayment, payment, dept, paymentInfo, m;
 
-            for (var m = 1; m <= maturity; m++) {
+            for (m = 1; m <= maturity; m++) {
                 dept             = principalAmount / monthsLeft,
                 precentPayment   = (principalAmount * rate) / (100 * months);
                 monthlyPayment   = dept + precentPayment;
@@ -107,7 +113,7 @@ var CreditCalculator = (function () {
                 calculation      = [];
 
                 paymentInfo = {
-                    'month': m,
+                    'month': monthsName[stepMonth] + '/' + stepYear,
                     'monthPayment': monthlyPayment,
                     'basicPayment': dept,
                     'precentPayment': precentPayment,
@@ -115,6 +121,13 @@ var CreditCalculator = (function () {
                 };
 
                 calculation.push(paymentInfo);
+
+                if (stepMonth === 11) {
+                    stepMonth = 0;
+                    stepYear++;
+                } else {
+                    stepMonth++;
+                }
 
                 monthsLeft--;
             }
@@ -124,15 +137,14 @@ var CreditCalculator = (function () {
 
         'renderTable': function (calculation) {
             var length = calculation.length,
+                tr     = '',
                 i      = 0;
 
             if (!length) {
                 return false;
             }
 
-            var tr = '';
-
-            for (var i = 0; i <= length - 1; i++) {
+            for (i = 0; i <= length - 1; i++) {
                 tr += Core.formatString(
                     templates.row.join(''),
                     calculation[i].month,
@@ -143,9 +155,7 @@ var CreditCalculator = (function () {
                 );
             }
 
-            var table = Core.formatString(templates.table.join(''), tr);
-
-            return table;
+            return Core.formatString(templates.table.join(''), tr);
         }
     };
 })();

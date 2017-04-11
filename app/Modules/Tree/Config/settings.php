@@ -8,6 +8,8 @@ return [
         "articles"=>trans('articles::admin.title'),
         "gallery"=>trans('gallery::admin.title'),
         "feedback"=>trans('feedback::admin.title'),
-        "credit" => trans('credit::admin.title')],
+        "credit" => trans('credit::admin.title'),
+        "branches" => trans('branches::admin.title'),
+        ],
     "templates"=> ["inner"=>trans('tree::admin.templates.inner'), "index"=>trans('tree::admin.templates.index')]
 ];

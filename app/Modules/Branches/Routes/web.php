@@ -14,3 +14,7 @@
 Route::group(['prefix' => config('cms.uri')], function () {
     Route::resource('/branches', 'Admin\IndexController');
 });
+
+Route::group(['prefix' => '/branches'], function () {
+    Route::get('/', 'IndexController@index');
+});

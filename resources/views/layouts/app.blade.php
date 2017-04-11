@@ -84,7 +84,7 @@
                         <div class="header__logo">
                             <div class="logo">
                                 <a href="{{ home() }}">
-                                    <img src="img/logo.png" alt="Элет капитал">
+                                    <img src="{{ asset('img/logo.png') }}" alt="Элет капитал">
                                 </a>
                             </div>
                         </div>
@@ -102,14 +102,16 @@
             </div>
         </div>
         <div class="page__main">
+            <div class="layout">
                 @section('page_content')
                 @show
+            </div>
         </div>
-        <div class="page__buffer"></div>
     </div>
+    <div class="page__buffer"></div>
     @include('parts.footer')
+    </div>
 </div>
-
 <script src="/js/plugins.js"></script>
 <script src="/js/main.js"></script>
 <script src="{{ asset('js/Core.js') }}"></script>

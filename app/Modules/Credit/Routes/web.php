@@ -20,5 +20,7 @@ Route::group(['prefix' => config('cms.uri')], function () {
 });
 
 Route::group(['prefix' => 'credit'], function () {
-    Route::get('show/{id}', 'IndexController@show')->name('credit.show');
+    Route::get('show/{id}', 'IndexController@customShow')
+        ->name('credit.show')
+        ->middleware('page');
 });
