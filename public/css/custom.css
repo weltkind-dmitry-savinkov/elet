@@ -1,0 +1,19 @@
+div.block-info__center div.tabs-small__nav-wrapper img {
+    
+}
+
+div.block-info__center div.tabs-small__main div.tabs-small__block.tabs-small__block_active {
+    min-height: 295px;
+}
+
+div.fancybox-skin {
+    background-color: #fff;
+}
+
+div.fancybox-overlay.fancybox-overlay-fixed table > thead > tr > th {
+    padding: 8px;
+    text-transform: uppercase;
+    color: #ffffff;
+    border-color: #aedaa8;
+    background-color: #f58232;
+}
