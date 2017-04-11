@@ -36,6 +36,50 @@ var Core = (function () {
                     ? objectFn(str, args[0])
                     : arrayFn(str, args);
             }
-        })()
+        })(),
+        'urlQs': function (url, params, ignore) {
+            var url       = url    || location.href,
+                params    = params || {},
+                ignore    = ignore || [],
+                qs_params = {};
+
+            if (location.href.indexOf('?') > -1) {
+                [current_url, current_qs] = location.href.split('?');
+
+                if (location.href.indexOf('&') > -1) {
+                    var current_params    = current_qs.split('&');
+
+                    for(var i = 0; i < current_params.length; i++) {
+                        [name, value] = current_params[i].split('=');
+
+                        if (ignore.indexOf(name) < 0 && value) {
+                            qs_params[name] = value;
+                        }
+                    }
+                }
+            }
+
+            if (Object.keys(params)) {
+                for(var name in params) {
+                    if (params[name]) {
+                        qs_params[name] = params[name];
+                    }
+                }
+            }
+
+            params = [];
+
+            for (var name in qs_params) {
+                params.push(name + '=' + qs_params[name]);
+            }
+
+            qs = params.join('&');
+
+            if (qs.length) {
+                url += '?' + qs;
+            }
+
+            return url;
+        }
     };
 })();

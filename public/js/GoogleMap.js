@@ -3,13 +3,13 @@ var GoogleMap = (function () {
     var marker, map;
 
     return {
-        init: function (id, params) {
+        'init': function (id, params) {
             map = new google.maps.Map(document.getElementById(id), params);
 
             return map;
         },
 
-        getMap: function () {
+        'getMap': function () {
             return map;
         },
 
@@ -19,11 +19,11 @@ var GoogleMap = (function () {
          * @param  double lng [description]
          * @return LatLng     [description]
          */
-        latLng: function(lat, lng) {
+        'latLng': function(lat, lng) {
             return new google.maps.LatLng(lat, lng);
         },
 
-        marker: function(position) {
+        'marker': function(position) {
             var marker = new google.maps.Marker();
 
             if (position) {
@@ -35,7 +35,7 @@ var GoogleMap = (function () {
             return marker;
         },
 
-        setMarker: function(position) {
+        'setMarker': function(position) {
             if (!marker) {
                 marker = GoogleMap.marker(position);
 
@@ -47,7 +47,13 @@ var GoogleMap = (function () {
             }
         },
 
-        addListener: function (eventName, callback) {
+        'setCenter': function (lat, lng) {
+            var coordinates = GoogleMap.latLng(lat, lng);
+
+            map.setCenter(coordinates);
+        },
+
+        'addListener': function (eventName, callback) {
             google.maps.event.addListener(map, eventName, callback);
         }
     };
