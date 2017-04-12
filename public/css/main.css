@@ -309,6 +309,7 @@
 
 .menu-main__item:hover > .menu-main__submenu {
     display: block;
+    min-width: 115%;
 }
 
 .menu-main__item:hover .menu-main__link {
@@ -742,29 +743,16 @@
     overflow: hidden;
     height: 80px;
     margin: 0 6px;
+    table-layout: fixed;
     border-radius: 12px;
     background-color: #ffffff;
     box-shadow: 0 0 8px rgba(0,0,0,0.3);
 }
 
-.tabs-small__nav:before,
-.tabs-small__nav:after {
-    display: table;
-    content: "";
-}
-
-.tabs-small__nav:after {
-    clear: both;
-}
-
 .tabs-small__tab {
-    display: inline-block;
-    float: left;
-    width: 20%;
-    height: 100%;
+    position: relative;
     cursor: pointer;
     border-right: 1px solid #e5e5e5;
-    background: transparent center center no-repeat;
 }
 
 .tabs-small__tab:last-child {
@@ -776,44 +764,31 @@
     background-color: #005835;
 }
 
-.tabs-small__tab_active.tabs-small__tab_cash {
-    background-image: url("../img/mid-cash-white.png");
+.tabs-small__tab_active .tabs-small__icon-passive {
+    opacity: 0;
 }
 
-.tabs-small__tab_active.tabs-small__tab_home {
-    background-image: url("../img/mid-home-white.png");
+.tabs-small__tab_active .tabs-small__icon-active {
+    opacity: 1;
 }
 
-.tabs-small__tab_active.tabs-small__tab_take {
-    background-image: url("../img/mid-take-white.png");
+.tabs-small__icon-passive,
+.tabs-small__icon-active {
+    position: absolute;
+    z-index: 7;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
 }
 
-.tabs-small__tab_active.tabs-small__tab_hands {
-    background-image: url("../img/mid-hands-white.png");
+.tabs-small__icon-passive {
+    opacity: 1;
 }
 
-.tabs-small__tab_active.tabs-small__tab_time {
-    background-image: url("../img/mid-time-white.png");
-}
-
-.tabs-small__tab_cash {
-    background-image: url("../img/mid-cash-green.png");
-}
-
-.tabs-small__tab_home {
-    background-image: url("../img/mid-home-green.png");
-}
-
-.tabs-small__tab_take {
-    background-image: url("../img/mid-take-green.png");
-}
-
-.tabs-small__tab_hands {
-    background-image: url("../img/mid-hands-green.png");
-}
-
-.tabs-small__tab_time {
-    background-image: url("../img/mid-time-green.png");
+.tabs-small__icon-active {
+    opacity: 0;
 }
 
 .range-block {

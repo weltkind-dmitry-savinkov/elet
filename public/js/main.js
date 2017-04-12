@@ -279,9 +279,9 @@ $(document).ready(function() {
     formTooltip.events();
 
     $('#calculateBtn').on('click', function () {
-        var amount = parseFloat($('#slider_summ_value').text());
-        var maturity = parseFloat($('#slider_time_value').text());
-        var rate     = parseFloat($('div.tabs-small__nav .tabs-small__tab_active').data('interest-rate'));
+        var amount   = parseFloat($('#slider_summ_value').text());
+        var maturity = parseInt($('#slider_time').val());
+        var rate     = parseFloat($('.tabs-small__nav .tabs-small__tab_active').data('interest-rate'));
 
         if (!amount) {
             alert('Вы не указали сумму кредита');
@@ -301,7 +301,7 @@ $(document).ready(function() {
         annuityHtml         = CreditCalculator.renderTable(annuityPayment.paymentsInfo);
         differentialPayment = CreditCalculator.renderTable(differentialPayment.paymentsInfo);
 
-        $.fancybox(annuityHtml, {'padding': 0, 'height': 380, 'minWidth': 1000})
+        $.fancybox(annuityHtml, {'padding': 0, 'height': '%', 'width': '', 'overflow': 'none'})
     });
 
     $('.list-affiliates__link').on('click', function () {
@@ -330,10 +330,12 @@ $(document).ready(function() {
 
     var s = $('#slider_side_time').data("ionRangeSlider");
 
-    s.options.onFinish = function () {
-        var context = $('#slider_side_time');
-        calc.apply(context[0]);
-    };
+    if (s) {
+        s.options.onFinish = function () {
+            var context = $('#slider_side_time');
+            calc.apply(context[0]);
+        };
+    }
 
     $('#smallCalc :input').on('blur', calc);
 });

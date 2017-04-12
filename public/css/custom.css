@@ -9,11 +9,49 @@ div.block-info__center div.tabs-small__main div.tabs-small__block.tabs-small__bl
 div.fancybox-skin {
     background-color: #fff;
 }
+div.fancybox-overlay.fancybox-overlay-fixed table.table-modal {
+    empty-cells: show;
+    border-spacing: 0;
+    border: 1px solid transparent;
+    border-collapse: collapse;
+    font-size: 15px;
+}
 
-div.fancybox-overlay.fancybox-overlay-fixed table > thead > tr > th {
+div.fancybox-overlay.fancybox-overlay-fixed table.table-modal .primary table thead {
+    color: #ffffff;
+    background-color: #f58232;
+}
+
+div.fancybox-overlay.fancybox-overlay-fixed table.table-modal th {
+    overflow: visible;
+    margin: 0;
+    padding: 10px 18px 9px;
+    vertical-align: top;
+    border: 1px solid transparent;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+div.fancybox-overlay.fancybox-overlay-fixed table.table-modal > thead > tr > th {
     padding: 8px;
     text-transform: uppercase;
     color: #ffffff;
     border-color: #aedaa8;
     background-color: #f58232;
+}
+
+div.fancybox-overlay.fancybox-overlay-fixed table.table-modal td:first-child,
+div.fancybox-overlay.fancybox-overlay-fixed table.table-modal th:first-child {
+    border-left-width: 0;
+}
+
+div.fancybox-overlay.fancybox-overlay-fixed table.table-modal td:first-child {
+    color: #000;
+    background-color: #fff;
+}
+
+div.fancybox-overlay.fancybox-overlay-fixed table.table-modal td {
+    border-bottom: 1px solid #aedaa8;
+    padding: 16px 18px 15px;
+    background-color: transparent;
 }

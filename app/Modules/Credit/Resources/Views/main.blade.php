@@ -30,22 +30,31 @@
                                         <div class="tabs-small__text">
                                             {!! str_limit($credit->description, 150) !!}
                                         </div>
-                                        <a class="tabs-small__more" href="#">Узнать больше</a>
+                                        <a class="tabs-small__more" href="{{route('credit.show', ['id' => $credit->id])}}">
+                                            Узнать больше
+                                        </a>
                                     </div>
                                 </div>
                             @endforeach
-                        </div>
-                        <div class="tabs-small__nav-wrapper">
-                            <div class="tabs-small__nav">
-                                @foreach($credits as $credit)
-                                    <div class="tabs-small__tab" data-interest-rate="{{ $credit->interest_rate }}" style="background-image: url({{ $credit->imagePath('mini') }});">
-                                    </div>
-                                @endforeach
+                            <div class="tabs-small__nav-wrapper">
+                                <table class="tabs-small__nav">
+                                    <tr>
+                                        @foreach($credits as $credit)
+                                            <td class="tabs-small__tab" data-interest-rate="{{ $credit->interest_rate }}">
+                                                <img
+                                                    class="tabs-small__icon-passive"
+                                                    src="{{ $credit->imagePath('mini') }}"
+                                                    title alt="{{ $credit->title }}"
+                                                />
+                                                <img class="tabs-small__icon-active" src="img/mid-cash-white.png" title alt="img">
+                                            </td>
+                                        @endforeach
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="block-info__right">
                     <div class="range-block">
                         <div class="range-block__title">Сумма кредита:

@@ -13,7 +13,7 @@ return [
             ],
             [
                 'path'   => 'mini/',
-                'width'  => 64,
+                'width'  => 50,
                 'height' => false
             ],
         ]
