@@ -30,7 +30,7 @@ var CreditCalculator = (function () {
                     '<tbody>',
                         '{0}',
                     '</tbody>',
-            '</trable>'
+            '</table>',
                 ],
         'row': [
             '<tr>',
