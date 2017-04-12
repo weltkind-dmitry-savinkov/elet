@@ -1,3 +1,20 @@
+function calc () {
+    var form        = $(this).parents('form').get(0);
+        summ        = parseFloat(form.summ.value),
+        rate        = parseFloat(form.rate.value),
+        maturity    = parseInt(form.slider_side_time.value),
+        paymentType = form.payment_type.options[form.payment_type.selectedIndex].value;
+
+    if (!summ || !rate || !paymentType) {
+        return false;
+    }
+
+    var info = CreditCalculator[paymentType](summ, rate, maturity);
+
+    form.total_month_payment.value = info.totalInfo.totalMonthPayment;
+    form.overpayment.value         = info.totalInfo.totalPrecentPayment;
+}
+
 $(document).ready(function() {
 
     // ==================================================================================
@@ -262,9 +279,9 @@ $(document).ready(function() {
     formTooltip.events();
 
     $('#calculateBtn').on('click', function () {
-        var amount = parseFloat($('#slider_summ_value').text());
-        var maturity = parseFloat($('#slider_time_value').text());
-        var rate     = parseFloat($('div.tabs-small__nav .tabs-small__tab_active').data('interest-rate'));
+        var amount   = parseFloat($('#slider_summ_value').text());
+        var maturity = parseInt($('#slider_time').val());
+        var rate     = parseFloat($('.tabs-small__nav .tabs-small__tab_active').data('interest-rate'));
 
         if (!amount) {
             alert('Вы не указали сумму кредита');
@@ -281,10 +298,10 @@ $(document).ready(function() {
         var annuityPayment      = CreditCalculator.annuityPayment(amount, rate, maturity);
         var differentialPayment = CreditCalculator.differentialPayment(amount, rate, maturity);
 
-        annuityHtml         = CreditCalculator.renderTable(annuityPayment);
-        differentialPayment = CreditCalculator.renderTable(differentialPayment);
+        annuityHtml         = CreditCalculator.renderTable(annuityPayment.paymentsInfo);
+        differentialPayment = CreditCalculator.renderTable(differentialPayment.paymentsInfo);
 
-        $.fancybox(annuityHtml, {'padding': 0, 'height': 380, 'minWidth': 1000})
+        $.fancybox(annuityHtml, {'padding': 0, 'height': '%', 'width': '', 'overflow': 'none'})
     });
 
     $('.list-affiliates__link').on('click', function () {
@@ -310,4 +327,15 @@ $(document).ready(function() {
 
         window.location.href = url;
     });
+
+    var s = $('#slider_side_time').data("ionRangeSlider");
+
+    if (s) {
+        s.options.onFinish = function () {
+            var context = $('#slider_side_time');
+            calc.apply(context[0]);
+        };
+    }
+
+    $('#smallCalc :input').on('blur', calc);
 });

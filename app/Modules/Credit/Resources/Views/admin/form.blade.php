@@ -31,13 +31,24 @@
         {!! BootForm::checkbox('active', trans('admin::fields.active'), 1) !!}
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-3">
         @include(
             'admin::common.forms.image',
             [
                 'entity'      => $entity,
                 'routePrefix' => $routePrefix,
                 'field'       => 'icon'
+            ]
+        )
+    </div>
+
+    <div class="col-md-3">
+        @include(
+            'admin::common.forms.image',
+            [
+                'entity'      => $entity,
+                'routePrefix' => $routePrefix,
+                'field'       => 'icon_active'
             ]
         )
     </div>
