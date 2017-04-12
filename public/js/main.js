@@ -299,9 +299,40 @@ $(document).ready(function() {
         var differentialPayment = CreditCalculator.differentialPayment(amount, rate, maturity);
 
         annuityHtml         = CreditCalculator.renderTable(annuityPayment.paymentsInfo);
-        differentialPayment = CreditCalculator.renderTable(differentialPayment.paymentsInfo);
+        differentialHtml    = CreditCalculator.renderTable(differentialPayment.paymentsInfo);
 
-        $.fancybox(annuityHtml, {'padding': 0, 'height': '%', 'width': '', 'overflow': 'none'})
+        var html = [
+            '<div class="tabs-small">',
+                '<div class="tabs-small__nav-wrapper">',
+                    '<table class="eqNav">',
+                        '<tbody>',
+                            '<tr>',
+                                '<td class="eqTab eqActive">',
+                                    'Аннуитетный платеж',
+                                '</td>',
+                                '<td class="eqTab">',
+                                    'Дифференцированный платеж',
+                                '</td>',
+                            '</tr>',
+                        '</tbody>',
+                    '</table>',
+                '</div>',
+                '<div class="eqMain">',
+                    '<div class="eqContent eqActive">',
+                        '{0}',
+                    '</div>',
+                    '<div class="eqContent">',
+                        '{1}',
+                    '</div>',
+                '</div>',
+            '</div>',
+        ];
+
+        html = Core.formatString(html.join(''), annuityHtml, differentialHtml);
+
+        $.fancybox(html, {'padding': 0, 'height': '%', 'width': '', 'overflow': 'none'});
+
+        $('.tabs-small').eqTabs();
     });
 
     $('.list-affiliates__link').on('click', function () {

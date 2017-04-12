@@ -4509,3 +4509,17 @@ body.lb-disable-scrolling {
         transform: translateY(-1px);
     }
 }
+
+.eqTab {
+    display: inline-block;
+}
+
+.eqActive{    }
+
+.eqContent {
+    display: none;
+}
+
+.eqActive {
+    display: block;
+}
