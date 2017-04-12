@@ -19,7 +19,7 @@ var CreditCalculator = (function () {
 
     var templates = {
         'table': [
-            '<table class="table-info table-modal">',
+            '<table class="table-modal">',
                 '<thead>',
                     '<th>Дата платежа</th>',
                     '<th>Сумма платежа</th>',

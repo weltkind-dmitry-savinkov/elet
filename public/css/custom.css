@@ -1,7 +1,3 @@
-div.block-info__center div.tabs-small__nav-wrapper img {
-    
-}
-
 div.block-info__center div.tabs-small__main div.tabs-small__block.tabs-small__block_active {
     min-height: 295px;
 }
@@ -36,7 +32,7 @@ div.fancybox-overlay.fancybox-overlay-fixed table.table-modal > thead > tr > th 
     padding: 8px;
     text-transform: uppercase;
     color: #ffffff;
-    border-color: #aedaa8;
+    border-color: transparent;
     background-color: #f58232;
 }
 
@@ -47,11 +43,12 @@ div.fancybox-overlay.fancybox-overlay-fixed table.table-modal th:first-child {
 
 div.fancybox-overlay.fancybox-overlay-fixed table.table-modal td:first-child {
     color: #000;
+    font-weight: bold;
     background-color: #fff;
 }
 
 div.fancybox-overlay.fancybox-overlay-fixed table.table-modal td {
-    border-bottom: 1px solid #aedaa8;
     padding: 16px 18px 15px;
     background-color: transparent;
+    border-bottom: 1px solid #aedaa8;
 }
