@@ -369,4 +369,32 @@ $(document).ready(function() {
     }
 
     $('#smallCalc :input').on('blur', calc);
+
+    $('#giveCreditBtn').on('click', function () {
+        var params = {
+            'amount': parseFloat($('#slider_summ_value').text()),
+            'maturity': parseInt($('#slider_time').val())
+        };
+
+        var url = location.origin + '/order';
+
+        url = Core.urlQs(url, params);
+
+        location.href = url;
+    });
+
+    // We don't know what reuse components :(
+
+    $('#giveCreditBtn').on('click', function () {
+        var params = {
+            'amount': parseFloat($('#summ').val()),
+            'maturity': parseInt($('#slider_side_time').val())
+        };
+
+        var url = location.origin + '/order';
+
+        url = Core.urlQs(url, params);
+
+        location.href = url;
+    });
 });

@@ -84,7 +84,7 @@
                                 <a class="button button_main button_block button_lg" id="calculateBtn" href="#">Рассчитать</a>
                             </div>
                             <div class="range-block__right">
-                                <a class="button button_high button_block button_lg" href="#">Получить</a>
+                                <a id="giveCreditBtn" class="button button_high button_block button_lg" href="#">Получить</a>
                             </div>
                         </div>
                     </div>

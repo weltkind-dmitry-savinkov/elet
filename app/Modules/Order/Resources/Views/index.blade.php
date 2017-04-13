@@ -209,7 +209,12 @@
                                     name="amount"
                                     type="text" min="0"
                                     class="{{ $errors->get('amount') ? 'input-error styler' : '' }}"
-                                    value="{{ old('amount') }}"
+                                    value="{{ old('amount')
+                                        ? old('amount')
+                                        : app('request')->input('amount', 0)}}"
+                                    data-from="{{ old('amount')
+                                        ? old('amount')
+                                        : app('request')->input('amount', 0)}}"
                                 >
                                 @if($errors->get('amount'))
                                     <div class="feedback__error">
@@ -218,7 +223,16 @@
                                 @endif
                             </div>
                             <div class="form-main__slider">
-                                <input id="amount_slider" name="amount" type="text">
+                                <input
+                                        id="amount_slider"
+                                        name="amount"
+                                        value="{{ old('amount')
+                                            ? old('amount')
+                                            : app('request')->input('amount', 0)}}"
+                                        data-from="{{ old('amount')
+                                            ? old('amount')
+                                            : app('request')->input('amount', 0)}}" type="text"
+                                            >
                             </div>
                             <div class="form-main__values">
                                 <div class="form-main__val-left">0
@@ -363,13 +377,21 @@
                                     name="term"
                                     type="text"
                                     class="{{ $errors->get('term') ? 'input-error styler' : '' }}"
-                                    value="{{ old('term') }}"
+                                    value="{{ old('term')
+                                            ? old('term')
+                                            : app('request')->input('term', 0)}}"
                                 >
                             </div>
                             <div class="form-main__slider">
                                 <input
                                     id="request_time_slider"
-                                    type="text">
+                                    type="text"
+                                    value="{{ old('maturity')
+                                            ? old('maturity')
+                                            : app('request')->input('maturity', 0)}}"
+                                    data-from="{{ old('maturity')
+                                            ? old('maturity')
+                                            : app('request')->input('maturity', 0)}}">
                             </div>
                             <div class="form-main__values">
                                 <div class="form-main__val-left">2 мес.

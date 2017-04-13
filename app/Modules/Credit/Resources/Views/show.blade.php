@@ -61,7 +61,7 @@
                 <input type="text" name="overpayment" id="overpayment" disabled="disabled" value>
             </div>
             <div class="calc-small__item">
-                <input class="button button_high button_block button_lg" type="submit" value="Отправить заявку">
+                <input id="giveCreditBtn" class="button button_high button_block button_lg" type="button" value="Отправить заявку">
             </div>
             <div class="calc-small__item">
                 <a href="#">Ознакомиться с графиком погашения</a>
