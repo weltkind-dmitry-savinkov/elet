@@ -5,31 +5,7 @@
     <div class="layout layout_gradient">
         <div class="layout__wrapper">
             <div class="block-medium">
-                <div class="block-medium__left">
-                    <div class="widget-block">
-                        <a class="widget-block__title" href="#">Онлайн - кредит</a>
-                        <div class="widget-block__button">
-                            <div class="button button_success button_block button_md">Оформить кредит
-                            </div>
-                        </div>
-                        <div class="widget-block__main">
-                            <ul class="list-small">
-                                <li class="list-small__item">
-                                    <a class="list-small__link" href="#">График приема посетителей</a>
-                                </li>
-                                <li class="list-small__item">
-                                    <a class="list-small__link" href="#">Оставить предложение, жалобу</a>
-                                </li>
-                                <li class="list-small__item">
-                                    <a class="list-small__link" href="#">Отделения и филиалы</a>
-                                </li>
-                                <li class="list-small__item">
-                                    <a class="list-small__link" href="#">Погашение кредита через терминалы</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @include('tree::service-menu')
                 <div class="block-medium__center">
                     <div class="carousel-main">
                         <div class="carousel-main__track">
