@@ -57,7 +57,7 @@
 
 
     <link href="/css/reset.css" rel="stylesheet">
-    <link href="/css/bootstrap.css" rel="stylesheet">
+
     <link href="/css/modules.css" rel="stylesheet">
     <link href="/css/main.css" rel="stylesheet">
     <link href="/css/custom.css" rel="stylesheet">
@@ -67,7 +67,7 @@
 
     <script src="/js/jquery-2.2.4.min.js"></script>
     <script src="/js/modernizr.js"></script>
-    <script src="/js/bootstrap.js"></script>
+
     <script src="{{ asset('/js/CreditCalculator.js') }}"></script>
 </head>
 

@@ -76,3 +76,7 @@ div.fancybox-overlay.fancybox-overlay-fixed div.tabs-small table.eqNav .eqActive
     display: table-cell;
     width: 50%;
 }
+
+div.exchange__flag {
+    margin-top: 0;
+}

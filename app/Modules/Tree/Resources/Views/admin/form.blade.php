@@ -46,6 +46,11 @@
 
 </div>
 
+<div class="col-md-6">
+    {!! BootForm::hidden('in_service_menu', 0) !!}
+    {!! BootForm::checkbox('in_service_menu', trans('tree::admin.in_service_menu'), 1) !!}
+
+</div>
 
 <div class="col-md-6">
     {!! BootForm::select('module',  trans('tree::admin.module'), module_config('settings.modules')) !!}

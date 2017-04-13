@@ -64,4 +64,10 @@ class TreeRepository
         return Model::active()->where('in_footer', 1)->where('depth', 1)->get();
     }
 
+    public function getServiceMenu()
+    {
+        return Model::active()->where('in_service_menu', 1)->where('depth', 1)->get();
+    }
+
+
 }

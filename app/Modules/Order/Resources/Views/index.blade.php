@@ -469,55 +469,7 @@
         </div>
     </div>
     <div class="layout__sidebar sticky">
-        <ul class="submenu-main submenu-main_real">
-            <li class="submenu-main__item">
-                <a class="submenu-main__link" href="#">Пункт субменю</a>
-            </li>
-            <li class="submenu-main__item submenu-main__item_arrow">
-                <a class="submenu-main__link" href="#">Субменю...</a>
-                <div class="submenu-main__submenu">
-                    <ul class="submenu-main-2">
-                        <li class="submenu-main-2__item">
-                            <a class="submenu-main-2__link" href="#">Ещё один пункт чуть длиннее</a>
-                        </li>
-                        <li class="submenu-main-2__item">
-                            <a class="submenu-main-2__link" href="#">2 субменю</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="submenu-main__item submenu-main__item_arrow">
-                <a class="submenu-main__link" href="#">Пункт субменю</a>
-                <div class="submenu-main__submenu">
-                    <ul class="submenu-main-2">
-                        <li class="submenu-main-2__item">
-                            <a class="submenu-main-2__link" href="#">Ещё один пункт чуть длиннее</a>
-                        </li>
-                        <li class="submenu-main-2__item">
-                            <a class="submenu-main-2__link" href="#">2 субменю</a>
-                        </li>
-                        <li class="submenu-main-2__item">
-                            <a class="submenu-main-2__link" href="#">2 субменю</a>
-                        </li>
-                        <li class="submenu-main-2__item">
-                            <a class="submenu-main-2__link" href="#">2 субменю</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="submenu-main__item">
-                <a class="submenu-main__link" href="#">Ещё ссылка</a>
-            </li>
-            <li class="submenu-main__item">
-                <a class="submenu-main__link" href="#">И ещё</a>
-            </li>
-            <li class="submenu-main__item">
-                <a class="submenu-main__link" href="#">И ещё</a>
-            </li>
-            <li class="submenu-main__item">
-                <a class="submenu-main__link" href="#">И ещё</a>
-            </li>
-        </ul>
+        @include('tree::right-menu')
     </div>
 </div>
 @endsection
