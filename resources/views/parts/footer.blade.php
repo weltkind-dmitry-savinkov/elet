@@ -6,20 +6,7 @@
                 </div>
             </div>
             <div class="footer__right">
-                <ul class="menu-small">
-                    <li class="menu-small__item">
-                        <a class="menu-small__link" href="#">О нас</a>
-                    </li>
-                    <li class="menu-small__item">
-                        <a class="menu-small__link" href="#">Клиентам</a>
-                    </li>
-                    <li class="menu-small__item">
-                        <a class="menu-small__link" href="#">Малому и среднему бизнесу</a>
-                    </li>
-                    <li class="menu-small__item">
-                        <a class="menu-small__link" href="#">Инвесторам</a>
-                    </li>
-                </ul>
+                @include("tree::footer-menu")
             </div>
         </div>
     </footer>

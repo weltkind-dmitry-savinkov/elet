@@ -40,6 +40,12 @@
 
 </div>
 
+<div class="col-md-6">
+    {!! BootForm::hidden('in_footer', 0) !!}
+    {!! BootForm::checkbox('in_footer', trans('tree::admin.in_footer'), 1) !!}
+
+</div>
+
 
 <div class="col-md-6">
     {!! BootForm::select('module',  trans('tree::admin.module'), module_config('settings.modules')) !!}
