@@ -80,3 +80,7 @@ div.fancybox-overlay.fancybox-overlay-fixed div.tabs-small table.eqNav .eqActive
 div.exchange__flag {
     margin-top: 0;
 }
+
+div.tabs-small__title {
+    word-break: break-all;
+}

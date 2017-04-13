@@ -80,15 +80,27 @@
         <div class="page__header">
             <div class="header">
                 <div class="header__wrapper">
-                    <div class="header__left">
-                        <div class="header__logo">
-                            <div class="logo">
-                                <a href="{{ home() }}">
-                                    <img src="{{ asset('img/logo.png') }}" alt="Элет капитал">
-                                </a>
+                    @if(Route::getCurrentRoute()->uri() == '/')
+                        <div class="header__left">
+                            <div class="header__logo">
+                                <div class="logo">
+                                    <a href="{{ home() }}">
+                                        <img src="{{ asset('img/logo.png') }}" alt="Элет капитал">
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @else
+                        <div class="header__left header__left_small">
+                            <div class="header__logo header__logo_small">
+                                <div class="logo logo_small">
+                                    <a href="{{ home() }}">
+                                        <img src="{{ asset('img/logo.png') }}" alt="Элет капитал">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 <div class="header__right">
                     <div class="header__top">
                         @include('parts.langs')
