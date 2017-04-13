@@ -1,5 +1,11 @@
 @extends('admin::admin.index')
 
+@section('topmenu')
+    <div class="header-module-controls">
+        @include('admin::common.topmenu.list', ['routePrefix'=>$routePrefix])
+    </div>
+@endsection
+
 @section('th')
     <th>@sortablelink('fio', trans('order::fields.fio'))</th>
     <th>@sortablelink('phone', trans('order::fields.phone'))</th>
@@ -21,7 +27,7 @@
             <td>{{ $entity->status->title }}</td>
             <td class="controls">
                 @include(
-                    'admin::common.controls.all',
+                    'admin::common.controls.edit',
                     [
                         'routePrefix' => $routePrefix,
                         'id'          => $entity->id
