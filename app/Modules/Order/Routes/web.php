@@ -11,8 +11,11 @@
 |
 */
 
+Route::group(['prefix' => config('cms.uri')], function () {
+    Route::resource('/order', 'Admin\IndexController');
+});
+
 Route::group(['prefix' => 'order'], function() {
-    Route::get('/', function() {
-        dd('This is the Order module index page. Build something great!');
-    });
+    Route::get('/', 'IndexController@index');
+    Route::post('/store', 'IndexController@store')->name('order.store');
 });

@@ -6,7 +6,7 @@ use App\Providers\ModuleProvider;
 
 class ModuleServiceProvider extends ModuleProvider
 {
-    public $name = 'order';
+    public $module = 'order';
 
     /**
      * Register the module services.
