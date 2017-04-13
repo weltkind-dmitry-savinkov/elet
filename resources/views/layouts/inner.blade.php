@@ -1,10 +1,11 @@
 @extends('layouts.app')
 @section('page_content')
-
+<div class="layout__wrapper">
     @include('tree::breadcrumbs')
-    <div class="page-header"><h1>@yield('h1', @$meta->h1)</h1></div>
+    <h1 class="page-title">@yield('h1', @$meta->h1)</h1>
 
      @yield('content')
+</div>
 
         <!-- END FORMS-->
 @endsection
