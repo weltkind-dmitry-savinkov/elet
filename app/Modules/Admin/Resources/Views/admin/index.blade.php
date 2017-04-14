@@ -24,6 +24,8 @@
 
     @include('admin::common.errors')
 
+    @yield('additing_block')
+
     @if (count($entities) > 0)
         <table class="table table-bordered table-hover">
             <thead>
