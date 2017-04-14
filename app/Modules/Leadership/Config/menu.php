@@ -6,7 +6,7 @@ return [
             'icon'  => 'fa-users',
             'group' => 'modules',
             'route' => 'admin.leadership.index',
-            'title' => 'Руководство'
+            'title' => trans('leadership::admin.title')
         ]
     ]
 ];
