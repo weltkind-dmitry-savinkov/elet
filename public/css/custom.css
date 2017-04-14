@@ -84,3 +84,11 @@ div.exchange__flag {
 div.tabs-small__title {
     word-break: break-all;
 }
+
+td.tabs-small__tab_active img {
+    filter: brightness(0) invert(1);
+}
+
+.tabs-small__tab_active .tabs-small__icon-passive {
+    opacity: 1;
+}

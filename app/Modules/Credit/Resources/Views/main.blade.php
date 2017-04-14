@@ -46,7 +46,6 @@
                                                     src="{{ $credit->imagePath('mini') }}"
                                                     title alt="{{ $credit->title }}"
                                                 />
-                                                <img class="tabs-small__icon-active" src="img/mid-cash-white.png" title alt="img">
                                             </td>
                                         @endforeach
                                     </tr>
