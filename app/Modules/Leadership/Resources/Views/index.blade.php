@@ -1,8 +1,6 @@
 @extends('layouts.inner')
 
 @section('content')
-<h1 class="page-title">Руководство</h1>
-
     <table class="leaders">
         <tbody>
             @php
