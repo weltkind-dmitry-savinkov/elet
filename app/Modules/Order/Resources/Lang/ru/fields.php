@@ -17,5 +17,6 @@ return [
     'passport_number' => 'Номер паспорта',
     'date_issue' => 'Дата получения паспорта',
     'inn' => 'ИНН',
-    'comment' => 'Комментарий'
+    'comment' => 'Комментарий',
+    'recipient_email' => 'Email получателя'
 ];

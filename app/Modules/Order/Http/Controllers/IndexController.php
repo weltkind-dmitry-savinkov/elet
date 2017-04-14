@@ -2,6 +2,8 @@
 
 namespace App\Modules\Order\Http\Controllers;
 
+use Mail;
+
 use Illuminate\Http\Request;
 
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -9,6 +11,10 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use App\Http\Controllers\Controller;
 
 use App\Modules\Order\Models\Order;
+
+use App\Modules\Order\Mail\CreateOrder;
+
+use App\Modules\Settings\Models\Settings;
 
 class IndexController extends Controller
 {
@@ -33,7 +39,9 @@ class IndexController extends Controller
 
         unset($data['captcha']);
 
-        $this->getModel()->create($data);
+        $entity = $this->getModel()->create($data);
+
+        $this->notify($entity);
 
         return redirect()->back()->with('message', 'Ваша заявка создана.');
     }
@@ -42,7 +50,7 @@ class IndexController extends Controller
     {
         return [
             'fio'             => 'required|string|max:255',
-            'area'            => 'integer',
+            'area'            => 'string|max:400',
             'date_birth'      => 'required|date_format:d/m/Y',
             'city'            => 'string|max:255',
             'address'         => 'string|max:255',
@@ -65,5 +73,12 @@ class IndexController extends Controller
         return [
             'required'=>'Это поле обязательно для заполнения'
         ];
+    }
+
+    public function notify($entity)
+    {
+        $email = Settings::where('key', 'order.email')->first()->value;
+
+        Mail::to($email)->send(new CreateOrder($entity));
     }
 }

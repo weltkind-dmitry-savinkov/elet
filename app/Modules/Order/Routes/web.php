@@ -13,6 +13,7 @@
 
 Route::group(['prefix' => config('cms.uri')], function () {
     Route::resource('/order', 'Admin\IndexController');
+    Route::post('/email/save/order', 'Admin\IndexController@saveEmail')->name('order.admin.email.save');
 });
 
 Route::group(['prefix' => 'order'], function() {

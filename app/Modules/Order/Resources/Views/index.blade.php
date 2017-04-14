@@ -48,10 +48,12 @@
                             </div>
                             <div class="form-main__main">
                                 <select id="area" name="area">
-                                    <option value="1">Чуйская</option>
-                                    <option value="2">Горная</option>
-                                    <option value="3">Степная</option>
-                                    <option value="4">Иссык-Кульская</option>
+                                    <option value="Чуйская">Чуйская</option>
+                                    <option value="Таласская">Таласская</option>
+                                    <option value="Ошская">Ошская</option>
+                                    <option value="Иссык-Кульская">Иссык-Кульская</option>
+                                    <option value="Джалал-Абадская">Джалал-Абадская</option>
+                                    <option value="Баткенская">Баткенская</option>
                                 </select>
                             </div>
                         </div>
