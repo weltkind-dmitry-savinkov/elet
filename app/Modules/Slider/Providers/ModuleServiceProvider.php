@@ -2,20 +2,12 @@
 
 namespace App\Modules\Slider\Providers;
 
-use Caffeinated\Modules\Support\ServiceProvider;
+use App\Providers\ModuleProvider;
 
-class ModuleServiceProvider extends ServiceProvider
+class ModuleServiceProvider extends ModuleProvider
 {
-    /**
-     * Bootstrap the module services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        $this->loadTranslationsFrom(__DIR__.'/../Resources/Lang', 'slider');
-        $this->loadViewsFrom(__DIR__.'/../Resources/Views', 'slider');
-    }
+
+    public $module = 'slider';
 
     /**
      * Register the module services.
@@ -25,5 +17,11 @@ class ModuleServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+
+        $this->app->make('view')->composer(['slider::admin.form'], 'App\Modules\Slider\Http\ViewComposers\ColorComposer');
+        $this->app->make('view')->composer(['slider::admin.form'], 'App\Modules\Slider\Http\ViewComposers\LinkTypesComposer');
+        $this->app->make('view')->composer(['slider::main'], 'App\Modules\Slider\Http\ViewComposers\SliderComposer');
     }
+
+
 }
