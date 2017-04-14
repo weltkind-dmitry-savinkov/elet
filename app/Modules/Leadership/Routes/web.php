@@ -16,5 +16,5 @@ Route::group(['prefix' => config('cms.uri')], function () {
     Route::delete(
         'leadership/delete-upload/{id}/{field}',
         'Admin\IndexController@deleteUpload'
-    )->name('admin.leadership.delete-upload');
+    )->name('admin.partners.delete-upload');
 });
