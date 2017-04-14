@@ -21,7 +21,5 @@ Route::group(['prefix' => config('cms.uri')], function () {
 });
 
 Route::group(['prefix' => 'partners'], function() {
-    Route::get('/', function() {
-        dd('This is the Partners module index page. Build something great!');
-    });
+    Route::get('/', 'IndexController@index')->middleware('page');
 });
