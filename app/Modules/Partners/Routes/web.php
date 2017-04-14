@@ -12,9 +12,14 @@
 */
 
 Route::group(['prefix' => config('cms.uri')], function () {
-    Route::resource('/leadership', 'Admin\IndexController');
+    Route::resource('/partners', 'Admin\IndexController');
+
     Route::delete(
-        'leadership/delete-upload/{id}/{field}',
+        'partners/delete-upload/{id}/{field}',
         'Admin\IndexController@deleteUpload'
-    )->name('admin.partners.delete-upload');
+    )->name('admin.leadership.delete-upload');
+});
+
+Route::group(['prefix' => 'partners'], function() {
+    Route::get('/', 'IndexController@index')->middleware('page');
 });
