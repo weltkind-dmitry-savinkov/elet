@@ -18,3 +18,8 @@ Route::group(['prefix' => config('cms.uri')], function () {
         'Admin\IndexController@deleteUpload'
     )->name('admin.partners.delete-upload');
 });
+
+Route::group(['prefix' => 'leaderships'], function () {
+    Route::get('/', 'IndexController@index')->name('leaderships.index');
+    Route::get('/{id}', 'IndexController@customShow')->name('leaderships.customShow')->middleware('page');
+});
