@@ -10,7 +10,8 @@ return [
         "feedback"=>trans('feedback::admin.title'),
         "credit" => trans('credit::admin.title'),
         "branches" => trans('branches::admin.title'),
-        "order" => trans('order::admin.title_tree')
+        "order" => trans('order::admin.title_tree'),
+        "partners" => trans('partners::admin.title')
         ],
     "templates"=> ["inner"=>trans('tree::admin.templates.inner'), "index"=>trans('tree::admin.templates.index')]
 ];
