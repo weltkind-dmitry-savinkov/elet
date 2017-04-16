@@ -1,9 +1,9 @@
 @extends('admin::admin.index')
 
 @section('th')
-    <th>@sortablelink('title', 'Наименование')</th>
-    <th>@sortablelink('interest_rate', 'Процетная ставка')</th>
-    <th>@sortablelink('created_at', 'Добавлено')</th>
+    <th>@sortablelink('title', trans('credit::admin.name'))</th>
+    <th>@sortablelink('interest_rate', trans('credit::admin.rate'))</th>
+    <th>@sortablelink('created_at', trans('credit::admin.created_at'))</th>
     <th>@lang('admin::admin.control')</th>
 @endsection
 

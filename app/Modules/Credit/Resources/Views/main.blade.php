@@ -31,7 +31,7 @@
                                             {!! str_limit($credit->description, 150) !!}
                                         </div>
                                         <a class="tabs-small__more" href="{{route('credit.show', ['id' => $credit->id])}}">
-                                            Узнать больше
+                                            {{ trans('credit::more') }}
                                         </a>
                                     </div>
                                 </div>
@@ -56,7 +56,8 @@
                 </div>
                 <div class="block-info__right">
                     <div class="range-block">
-                        <div class="range-block__title">Сумма кредита:
+                        <div class="range-block__title">
+                            {{ trans('credit::amount') }}
                         </div>
                         <div class="range-block__input">
                             <div class="range-small">
@@ -67,7 +68,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="range-block__title">Срок кредита:
+                        <div class="range-block__title">
+                            {{ trans('credit::term') }}
                         </div>
                         <div class="range-block__input">
                             <div class="range-small">
@@ -80,10 +82,10 @@
                         </div>
                         <div class="range-block__bottom">
                             <div class="range-block__left">
-                                <a class="button button_main button_block button_lg" id="calculateBtn" href="#">Рассчитать</a>
+                                <a class="button button_main button_block button_lg" id="calculateBtn" href="#">{{ trans('credit::calculate') }}</a>
                             </div>
                             <div class="range-block__right">
-                                <a id="giveCreditBtn" class="button button_high button_block button_lg" href="#">Получить</a>
+                                <a id="giveCreditBtn" class="button button_high button_block button_lg" href="#">{{ trans('credit::get') }}</a>
                             </div>
                         </div>
                     </div>

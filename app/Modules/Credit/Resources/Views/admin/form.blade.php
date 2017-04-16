@@ -13,13 +13,13 @@
     !!}
 
     <div class="col-md-6">
-        {!! BootForm::text('title', 'Наименование') !!}
+        {!! BootForm::text('title', trans('credit::admin.name')) !!}
     </div>
 
     <div class="col-md-6">
         {!! BootForm::number(
                 'interest_rate',
-                'Процетная ставка',
+                trans('credit::admin.rate'),
                 $entity->interest_rate ? $entity->interest_rate : '',
                 ['step' => 'any']
             )
@@ -56,12 +56,10 @@
     <div class="col-md-12">
         {!! BootForm::textarea(
                 'description',
-                'Описание',
+                trans('creadi::admin.description'),
                 $entity->description ? $entity->description : '',
                 ['id' => 'creditDescription']
             )
         !!}
     </div>
-
-    
 @endsection
