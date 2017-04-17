@@ -1,10 +1,10 @@
 @extends('admin::admin.index')
 
 @section('th')
-    <th>@sortablelink('title', trans('Название'))</th>
-    <th>@sortablelink('region', trans('Регион'))</th>
-    <th>@sortablelink('address', trans('Адрес'))</th>
-    <th>@sortablelink('phone', trans('Телефон'))</th>
+    <th>@sortablelink('title', trans('branches::admin.name'))</th>
+    <th>@sortablelink('region', trans('branches::admin.region'))</th>
+    <th>@sortablelink('address', trans('branches::admin.address'))</th>
+    <th>@sortablelink('phone', trans('branches::admin.phone'))</th>
     <th>@lang('admin::admin.control')</th>
 @endsection
 
