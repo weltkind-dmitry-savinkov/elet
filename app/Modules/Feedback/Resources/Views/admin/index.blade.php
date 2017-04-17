@@ -6,6 +6,31 @@
     </div>
 @endsection
 
+@section('additing_block')
+<div class="box box-primary box-filters">
+        <div class="box-header"></div>
+        <div class="box-body">
+            <form action="{{ route('feedback.admin.email.save') }}" method="post">
+                <div class="col-md-3">
+                    <label for="email">
+                        {{ trans('order::fields.recipient_email') }}
+                    </label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="email" value="{{ $email }}" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="" class="form-controle"></label>
+                    <div class="form-group">
+                        <input type="submit" value="Сохранить" class="btn btn-primary">
+                    </div>
+                </div>
+                {{ csrf_field() }}
+            </form>
+        </div>
+    </div>
+@endsection
+
 @section('filters')
     {!! BootForm::open([ 'route' => 'admin.settings.store', 'method' => 'post']) !!}
 
