@@ -13,6 +13,7 @@
 
 Route::group(['prefix' => config('cms.uri')], function () {
     Route::resource('/branches', 'Admin\IndexController');
+    Route::resource('/regions', 'Admin\RegionsController');
 });
 
 Route::group(['prefix' => '/branches'], function () {
