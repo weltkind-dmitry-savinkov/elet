@@ -11,31 +11,31 @@
     !!}
 
     <div class="col-md-6">
-        {!! BootForm::text('title', trans('Наименование')) !!}
+        {!! BootForm::text('title', trans('branches::admin.name')) !!}
     </div>
 
     <div class="col-md-6">
         {!! BootForm::select(
             'region_id',
-            trans('Область'),
+            trans('branches::admin.region'),
             $regions
         ) !!}
     </div>
 
     <div class="col-md-6">
-        {!! BootForm::text('phone', trans('Телефон')) !!}
+        {!! BootForm::text('phone', trans('branches::admin.phone')) !!}
     </div>
 
     <div class="col-md-6">
-        {!! BootForm::text('operating_time', trans('Время работы')) !!}
+        {!! BootForm::text('operating_time', trans('branches::admin.operating_time')) !!}
     </div>
 
     <div class="col-md-6">
-        {!! BootForm::textarea('address', trans('Адрес')) !!}
+        {!! BootForm::textarea('address', trans('branches::admin.address')) !!}
     </div>
 
     <div class="col-md-6">
-        <label for="work_days">{{trans('Дни работы')}}</label>
+        <label for="work_days">{{trans('branches::admin.work_days')}}</label>
         <div>
             <select
                 class="form-control"
@@ -56,7 +56,7 @@
     </div>
 
     <div class="col-md-12">
-        <label for="" class="control-label">Положение на карте</label>
+        <label for="" class="control-label">{{ trans('branches::admin.position_map') }}</label>
         <div style="width: 100%; height: 400px" id="map"></div>
     </div>
     {!! BootForm::hidden(

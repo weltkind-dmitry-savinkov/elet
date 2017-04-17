@@ -3,16 +3,19 @@
 @section('page_content')
 <div class="layout__wrapper">
     <div class="layout__content">
-        <h1 class="page-title">Филиалы</h1>
+        <h1 class="page-title">{{ trans('branches::index.title') }}</h1>
         <div class="affiliates">
             <div class="affiliates__top">
                 <form action="#" method="post">
                     <div class="affiliates__input">
-                        <div class="affiliates__label">Показать:
+                        <div class="affiliates__label">
+                            {{ trans('branches::index.show') }}
                         </div>
                         <div class="affiliates__select">
                             <select>
-                                <option data-field="id" value="">Всё</option>
+                                <option data-field="id" value="">
+                                    {{ trans('branches::index.all') }}:
+                                </option>
                                 @foreach($items as $item)
                                     <option
                                         data-field="id"
@@ -31,11 +34,14 @@
                         </div>
                     </div>
                     <div class="affiliates__input">
-                        <div class="affiliates__label">Область:
+                        <div class="affiliates__label">
+                            {{ trans('branches::index.region') }}:
                         </div>
                         <div class="affiliates__select">
                             <select>
-                                <option data-field="region" value="">Все регионы</option>
+                                <option data-field="region" value="">
+                                    {{ trans('branches::index.region_all') }}
+                                </option>
                                 @foreach($regions as $region)
                                     <option
                                         data-field="region"
@@ -69,11 +75,11 @@
                             <div class="list-affiliates__center">
                                 <table>
                                     <tr>
-                                        <td>Адрес:</td>
+                                        <td>{{ trans('branches::index.address') }}:</td>
                                         <td>{{ $item->address }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Телефоны:</td>
+                                        <td>{{ trans('branches::index.phone') }}:</td>
                                         <td>
                                             <a href="tel:+{{$item->phone}}">
                                                 +{{$item->phone}}
@@ -85,11 +91,15 @@
                             <div class="list-affiliates__right">
                                 <table>
                                     <tr>
-                                        <td>Время работы:</td>
+                                        <td>
+                                            {{ trans('branches::index.worikin_hours') }}:
+                                        </td>
                                         <td>{{ $item->operating_time }}</td>
                                     </tr>
                                 </table>
-                                <a data-lat="{{ $item->lat }}" data-lng="{{ $item->lng }}" class="list-affiliates__link" href="#">Смотреть на карте</a>
+                                <a data-lat="{{ $item->lat }}" data-lng="{{ $item->lng }}" class="list-affiliates__link" href="#">
+                                    {{ trans('branches::index.show_map') }}
+                                </a>
                             </div>
                         </li>
                     @endforeach
@@ -98,55 +108,7 @@
         </div>
     </div>
     <div class="layout__sidebar sticky">
-        <ul class="submenu-main submenu-main_real">
-            <li class="submenu-main__item">
-                <a class="submenu-main__link" href="#">Пункт субменю</a>
-            </li>
-            <li class="submenu-main__item submenu-main__item_arrow">
-                <a class="submenu-main__link" href="#">Субменю...</a>
-                <div class="submenu-main__submenu">
-                    <ul class="submenu-main-2">
-                        <li class="submenu-main-2__item">
-                            <a class="submenu-main-2__link" href="#">Ещё один пункт чуть длиннее</a>
-                        </li>
-                        <li class="submenu-main-2__item">
-                            <a class="submenu-main-2__link" href="#">2 субменю</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="submenu-main__item submenu-main__item_arrow">
-                <a class="submenu-main__link" href="#">Пункт субменю</a>
-                <div class="submenu-main__submenu">
-                    <ul class="submenu-main-2">
-                        <li class="submenu-main-2__item">
-                            <a class="submenu-main-2__link" href="#">Ещё один пункт чуть длиннее</a>
-                        </li>
-                        <li class="submenu-main-2__item">
-                            <a class="submenu-main-2__link" href="#">2 субменю</a>
-                        </li>
-                        <li class="submenu-main-2__item">
-                            <a class="submenu-main-2__link" href="#">2 субменю</a>
-                        </li>
-                        <li class="submenu-main-2__item">
-                            <a class="submenu-main-2__link" href="#">2 субменю</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="submenu-main__item">
-                <a class="submenu-main__link" href="#">Ещё ссылка</a>
-            </li>
-            <li class="submenu-main__item">
-                <a class="submenu-main__link" href="#">И ещё</a>
-            </li>
-            <li class="submenu-main__item">
-                <a class="submenu-main__link" href="#">И ещё</a>
-            </li>
-            <li class="submenu-main__item">
-                <a class="submenu-main__link" href="#">И ещё</a>
-            </li>
-        </ul>
+        @include('tree::right-menu')
     </div>
 </div>
 @endsection
