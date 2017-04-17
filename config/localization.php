@@ -5,7 +5,7 @@ return [
      |  Settings
      | ------------------------------------------------------------------------------------------------
      */
-    'supported-locales'      => ['en', 'ru'],
+    'supported-locales'      => ['en', 'ru', 'ky'],
 
     'accept-language-header' => true,
 
@@ -39,6 +39,7 @@ return [
             'dir'      => 'ltr',
             'native'   => 'English',
             'regional' => 'en_GB',
+            'label'    => 'EN'
         ],
 
         'ru'          => [
@@ -47,6 +48,16 @@ return [
             'dir'      => 'ltr',
             'native'   => 'Русский',
             'regional' => 'ru_RU',
+            'label'    => 'РУ'
+        ],
+
+        'ky'          => [
+            'name'     => 'Kyrgyz',
+            'script'   => 'Cyrl',
+            'dir'      => 'ltr',
+            'native'   => 'Кыргызча',
+            'regional' => 'ky_KY',
+            'label'    => 'КР'
         ],
 
     ],
