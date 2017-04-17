@@ -80,7 +80,7 @@
         <div class="page__header">
             <div class="header">
                 <div class="header__wrapper">
-                    @if(Route::getCurrentRoute()->uri() == '/')
+                    @if(Route::getCurrentRoute() && Route::getCurrentRoute()->uri() == '/')
                         <div class="header__left">
                             <div class="header__logo">
                                 <div class="logo">
