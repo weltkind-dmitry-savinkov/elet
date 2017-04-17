@@ -12,6 +12,8 @@ return[
 
     'name'=>'Ваше имя',
     'name_placeholder'=>'Введите ваше имя',
+    'phone'=>'Ваш телефон',
+    'phone_placeholder'=>'Введите ваш номер телефона',
     'email'=>'Ваш e-mail',
     'email_placeholder'=>'Введите ваш Email',
 

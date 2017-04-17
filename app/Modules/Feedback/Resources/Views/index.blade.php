@@ -63,6 +63,20 @@
                             @endif
 
                         </div>
+
+                        <div class="feedback__item">
+                            <label class="feedback__label" for="phone">@lang('feedback::index.phone') *</label>
+                            <input type="text" name="phone" placeholder="@lang('feedback::index.phone_placeholder')" id="phone"
+                                   value="{{old('phone')}}">
+
+                            @if ($errors->has('phone'))
+                                <div class="feedback__error">
+                                    {{ $errors->first('phone') }}
+                                </div>
+                            @endif
+
+                        </div>
+
                         <div class="feedback__item">
                             <label class="feedback__label" for="email">@lang('feedback::index.email') *</label>
                             <input type="text" name="email" placeholder="@lang('feedback::index.email_placeholder')" id="email"

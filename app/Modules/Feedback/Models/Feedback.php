@@ -10,7 +10,7 @@ class Feedback extends Model
 
     use Notifiable, Sortable;
 
-    protected $fillable = ['date','email', 'name', 'message', 'ip'];
+    protected $fillable = ['date','email', 'name', 'message', 'ip', 'phone'];
 
     public function imagePrefixPath(){
         return '/uploads/reviews/';
