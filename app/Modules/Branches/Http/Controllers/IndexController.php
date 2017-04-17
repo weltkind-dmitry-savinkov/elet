@@ -2,9 +2,9 @@
 
 namespace App\Modules\Branches\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-
 use App\Modules\Tree\Helpers\Breadcrumbs;
+
+use App\Http\Controllers\Controller;
 
 use App\Modules\Branches\Models\Branche;
 use App\Modules\Branches\Models\Region;
