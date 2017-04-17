@@ -4,6 +4,8 @@ namespace App\Modules\Branches\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
+use App\Modules\Tree\Helpers\Breadcrumbs;
+
 use App\Modules\Branches\Models\Branche;
 use App\Modules\Branches\Models\Region;
 
@@ -15,6 +17,16 @@ class IndexController extends Controller
     }
 
     public function index() {
+
+        Breadcrumbs::add(
+            trans('Главная'),
+            home()
+        );
+
+        Breadcrumbs::add(
+            trans('branches::index.title'),
+            route('credit.index')
+        );
 
         $regions = Region::all();
         $qb      = $this->getModel()->select();

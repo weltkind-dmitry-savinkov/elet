@@ -16,5 +16,5 @@ Route::group(['prefix' => config('cms.uri')], function () {
 });
 
 Route::group(['prefix' => '/branches'], function () {
-    Route::get('/', 'IndexController@index');
+    Route::get('/', 'IndexController@index')->name('branches.index');
 });

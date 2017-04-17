@@ -1,7 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.inner')
 
-@section('page_content')
-<div class="layout__wrapper">
+@section('meta-title')
+    @lang('branches::index.title')
+@endsection
+
+@section('content')
     <div class="layout__content">
         <h1 class="page-title">{{ trans('branches::index.title') }}</h1>
         <div class="affiliates">
@@ -92,7 +95,7 @@
                                 <table>
                                     <tr>
                                         <td>
-                                            {{ trans('branches::index.worikin_hours') }}:
+                                            {{ trans('branches::index.working_hours') }}:
                                         </td>
                                         <td>{{ $item->operating_time }}</td>
                                     </tr>
@@ -110,7 +113,6 @@
     <div class="layout__sidebar sticky">
         @include('tree::right-menu')
     </div>
-</div>
 @endsection
 
 @push('js')
