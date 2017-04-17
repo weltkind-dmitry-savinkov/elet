@@ -1,8 +1,8 @@
 @extends('admin::admin.index')
 
 @section('th')
-    <th>@sortablelink('title', 'ФИО')</th>
-    <th>@sortablelink('position', 'Должность')</th>
+    <th>@sortablelink('title', trans('leadership::admin.full_name'))</th>
+    <th>@sortablelink('position', trans('leadership::admin.position'))</th>
     <th>@lang('admin::admin.control')</th>
 @endsection
 
