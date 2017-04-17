@@ -107,7 +107,7 @@
 
                         @include('parts.social-buttons')
 
-                        @include('parts.search')
+                        @include('search::main')
                     </div>
                     @include('parts.menu-header')
                 </div>
