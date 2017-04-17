@@ -95,7 +95,14 @@ class IndexController extends Controller
             return view('search::message')->withErrors($validator);
         }
 
-        return view('search::index', ['query' => $query, 'total' => SearchAbstract::$total, 'result' => $result]);
+        return view(
+            'search::index',
+            [
+                'query' => $query,
+                'total' => SearchAbstract::$total, 'result' => $result,
+                'pageTitle' => trans('search::index.title')
+            ]
+        );
     }
 
     /**

@@ -15,14 +15,43 @@ class IndexController extends Controller
         return new Credit();
     }
 
+    public function index(){
+        Breadcrumbs::add(
+            trans('credit::index.products'),
+            route('credit.index')
+        );
+
+        return view(
+            $this->getIndexViewName(),
+            [
+                'items' => $this->getModel()->active()->paginate($this->perPage),
+                'routePrefix' => $this->routePrefix,
+                'pageTitle' => trans('credit::index.products')
+            ]
+        );
+    }
+
     public function customShow($id) {
-        Breadcrumbs::add('Test',route('credit.show',$id));
 
         $credit = $this->getModel()->findOrFail($id);
 
+        Breadcrumbs::add(
+            trans('credit::index.title'),
+            route('credit.index')
+        );
+
+        Breadcrumbs::add(
+            $credit->title,
+            route('credit.customShow', ['id' => $credit->id])
+        );
+
         return view(
             $this->getShowViewName(),
-            ['routePrefix' => $this->routePrefix, 'credit' => $credit]
+            [
+                'routePrefix' => $this->routePrefix,
+                'credit' => $credit,
+                'pageTitle' => $credit->title
+            ]
         );
     }
 }

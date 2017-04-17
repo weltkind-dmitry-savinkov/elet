@@ -30,8 +30,8 @@
                                         <div class="tabs-small__text">
                                             {!! str_limit($credit->description, 150) !!}
                                         </div>
-                                        <a class="tabs-small__more" href="{{route('credit.show', ['id' => $credit->id])}}">
-                                            {{ trans('credit::more') }}
+                                        <a class="tabs-small__more" href="{{route('credit.customShow', ['id' => $credit->id])}}">
+                                            {{ trans('credit::index.more') }}
                                         </a>
                                     </div>
                                 </div>
@@ -57,7 +57,7 @@
                 <div class="block-info__right">
                     <div class="range-block">
                         <div class="range-block__title">
-                            {{ trans('credit::amount') }}
+                            {{ trans('credit::index.amount') }}
                         </div>
                         <div class="range-block__input">
                             <div class="range-small">
@@ -69,7 +69,7 @@
                             </div>
                         </div>
                         <div class="range-block__title">
-                            {{ trans('credit::term') }}
+                            {{ trans('credit::index.term') }}
                         </div>
                         <div class="range-block__input">
                             <div class="range-small">
@@ -82,10 +82,10 @@
                         </div>
                         <div class="range-block__bottom">
                             <div class="range-block__left">
-                                <a class="button button_main button_block button_lg" id="calculateBtn" href="#">{{ trans('credit::calculate') }}</a>
+                                <a class="button button_main button_block button_lg" id="calculateBtn" href="#">{{ trans('credit::index.calculate') }}</a>
                             </div>
                             <div class="range-block__right">
-                                <a id="giveCreditBtn" class="button button_high button_block button_lg" href="#">{{ trans('credit::get') }}</a>
+                                <a id="giveCreditBtn" class="button button_high button_block button_lg" href="#">{{ trans('credit::index.get') }}</a>
                             </div>
                         </div>
                     </div>
