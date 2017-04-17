@@ -7,4 +7,9 @@ Route::localizedGroup(function () {
 
     });
 
+    Route::group(['prefix' => 'news'], function () {
+        Route::get('/','IndexController@index')->name('news')->middleware('page');
+        Route::get('news/{id}','IndexController@customShow')->name('news.customShow')->middleware('page');
+    });
+
 });
