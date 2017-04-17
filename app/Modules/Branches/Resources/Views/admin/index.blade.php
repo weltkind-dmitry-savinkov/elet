@@ -12,7 +12,7 @@
     @foreach($entities as $entity)
         <tr>
             <td>{{ $entity->title }}</td>
-            <td>{{ $entity->region }}</td>
+            <td>{{ $entity->region->name }}</td>
             <td>{{ $entity->address }}</td>
             <td>{{ $entity->phone }}</td>
             <td class="controls">@include ('admin::common.controls.all', ['routePrefix'=>$routePrefix, 'id'=>$entity->id])</td>
