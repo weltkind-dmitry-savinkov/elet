@@ -27,7 +27,7 @@ class Search extends BaseSearch
                 ));
             })
             ->where('active', 1)
-            //->where('lang', \Lang::locale())
+            ->where('lang', \Lang::locale())
             ->get();
 
         return $this->addNodes($sql, 'credit', trans('credit::index.title'));
