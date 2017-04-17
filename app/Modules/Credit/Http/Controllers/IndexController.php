@@ -36,7 +36,7 @@ class IndexController extends Controller
         $credit = $this->getModel()->findOrFail($id);
 
         Breadcrumbs::add(
-            'Кредитные продукты',
+            trans('credit::index.title'),
             route('credit.index')
         );
 

@@ -9,6 +9,7 @@
                 placeholder="@lang('search::index.input_placeholder')"
                 value="{{ $query }}"
                 maxlength="255"
+                name="query"
             >
             <input class="search-input__button" type="submit">
         </div>
