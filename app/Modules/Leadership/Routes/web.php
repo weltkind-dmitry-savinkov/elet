@@ -11,15 +11,19 @@
 |
 */
 
-Route::group(['prefix' => config('cms.uri')], function () {
-    Route::resource('/leadership', 'Admin\IndexController');
-    Route::delete(
-        'leadership/delete-upload/{id}/{field}',
-        'Admin\IndexController@deleteUpload'
-    )->name('admin.partners.delete-upload');
-});
+Route::localizedGroup(function () {
 
-Route::group(['prefix' => 'leaderships'], function () {
-    Route::get('/', 'IndexController@index')->name('leaderships.index');
-    Route::get('/{id}', 'IndexController@customShow')->name('leaderships.customShow')->middleware('page');
+    Route::group(['prefix' => config('cms.uri')], function () {
+        Route::resource('/leadership', 'Admin\IndexController');
+        Route::delete(
+            'leadership/delete-upload/{id}/{field}',
+            'Admin\IndexController@deleteUpload'
+        )->name('admin.partners.delete-upload');
+    });
+
+    Route::group(['prefix' => 'leaderships'], function () {
+        Route::get('/', 'IndexController@index')->name('leaderships.index');
+        Route::get('/{id}', 'IndexController@customShow')->name('leaderships.customShow')->middleware('page');
+    });
+
 });

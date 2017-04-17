@@ -13,11 +13,11 @@
     ) !!}
 
     <div class="col-md-6">
-        {!! BootForm::text('title', trans('ФИО')) !!}
+        {!! BootForm::text('title', trans('leadership::admin.full_name')) !!}
     </div>
 
     <div class="col-md-6">
-        {!! BootForm::text('position', trans('Должность')) !!}
+        {!! BootForm::text('position', trans('leadership::admin.position')) !!}
     </div>
 
     <div class="col-md-6">
