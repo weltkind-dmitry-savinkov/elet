@@ -13,5 +13,16 @@ class IndexController extends Controller
         return new Article();
     }
 
+    public function customShow($id){
+        $entity = $this->getModel()->findOrFail($id);
+
+        return view(
+            $this->getShowViewName(),
+            [
+                'routePrefix' => $this->routePrefix,
+                'entity' => $entity
+            ]
+        );
+    }
 
 }
