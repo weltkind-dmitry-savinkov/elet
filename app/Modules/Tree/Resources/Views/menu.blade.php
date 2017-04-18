@@ -5,11 +5,11 @@
             <tbody>
                 <tr>
                     @foreach($items as $item)
-                        <td class="menu-main__item menu-main__item_arrow">
+                        <td class="menu-main__item {{ count($item->children) ? 'menu-main__item_arrow' : '' }}">
                             <a class="menu-main__link" href="{!! URL::route($item->slug) !!}">
                                 {{ $item->title }}
                             </a>
-                            @if($item->children)
+                            @if(count($item->children))
                                 <div class="menu-main__submenu">
                                     <ul class="submenu-main">
                                         @foreach($item->children as $item)

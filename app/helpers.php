@@ -92,13 +92,13 @@ if (!function_exists('action')) {
 
 if (!function_exists('render_submenu')) {
 
-    function render_submenu($menu, $template = null)
+    function render_submenu($menu, $template = null, $level = 2)
     {
         if (!$template) {
             $template = 'tree::submenu';
         }
 
-        return View::make('tree::submenu', ['menu' => $menu])->render();
+        return View::make('tree::submenu', ['menu' => $menu, 'level' => $level])->render();
     }
 
 }

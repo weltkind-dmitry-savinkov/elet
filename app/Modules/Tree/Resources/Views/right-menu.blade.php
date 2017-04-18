@@ -4,7 +4,7 @@
         <a class="submenu-main__link" href="{!! URL::route($item->slug) !!}">
             {{ $item->title }}
         </a>
-        @if($item->children)
+        @if(count($item->children))
             <div class="submenu-main__submenu">
                 <ul class="submenu-main-2">
                     @foreach($item->children as $item)
