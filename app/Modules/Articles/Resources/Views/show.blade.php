@@ -14,6 +14,6 @@
             {!! $entity->content !!}
 
         </div>
-        <a class="get-back" href="{{route($page->slug)}}">@lang('articles::index.back')</a>
+        <a class="get-back" href="#">@lang('articles::index.back')</a>
     </div>
 @endsection
