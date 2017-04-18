@@ -11,18 +11,27 @@
 |
 */
 
-Route::group(['prefix' => config('cms.uri')], function () {
-    Route::resource('/credit', 'Admin\IndexController');
-    Route::delete(
-        'credit/delete-upload/{id}/{fied}',
-        'Admin\IndexController@deleteUpload'
-    )->name('admin.credit.delete-upload');
-    Route::get('/list/credit', 'Admin\IndexController@list');
-});
+Route::localizedGroup(function () {
 
-Route::group(['prefix' => 'credit'], function () {
-    Route::get('/', 'IndexController@index')->name('credit.index')->middleware('page');
-    Route::get('show/{id}', 'IndexController@customShow')
-        ->name('credit.customShow')
-        ->middleware('page');
+    Route::group(['prefix' => config('cms.uri')], function () {
+        Route::resource('/credit', 'Admin\IndexController');
+        Route::delete(
+            'credit/delete-upload/{id}/{fied}',
+            'Admin\IndexController@deleteUpload'
+        )->name('admin.credit.delete-upload');
+        Route::get('/list/credit', 'Admin\IndexController@list');
+    });
+
+    Route::group(['prefix' => 'credit'], function () {
+        Route::get('/', 'IndexController@index')
+            ->name('credit.index')
+            ->middleware('page');
+
+        Route::get('show/{id}', 'IndexController@customShow')
+            ->name('credit.customShow')
+            ->middleware('page');
+    });
+
+    Route::get('/calculator', 'CalculatorController@index')->name('credit.calculator');
+
 });

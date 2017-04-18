@@ -99,3 +99,16 @@ div.page__content div.layout__content div.alert.alert-info {
     background-color: #dff0d8;
     color: #234c24;
 }
+
+.eqTab {
+    display: inline-block;
+}
+.eqTab.eqActive {}
+
+.eqContent {
+    display: none;
+}
+
+.eqContent.eqActive {
+    display: block;
+}

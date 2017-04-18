@@ -21,6 +21,10 @@
                                                     >
                                                         {{$item->title}}
                                                     </a>
+                                                @elseif(strpos($item->module, '.'))
+                                                    <a class="submenu-main__link" href=" {!! URL::route($item->module) !!}">
+                                                        {{$item->title}}
+                                                    </a>
                                                 @else
                                                     <a class="submenu-main__link" href=" {!! URL::route($item->slug) !!}">
                                                         {{$item->title}}
