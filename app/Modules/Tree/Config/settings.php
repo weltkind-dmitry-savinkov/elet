@@ -3,7 +3,8 @@ return [
 
     'title'=>trans('tree::admin.title'),
     'localization'=>true,
-    "modules"=>[""=>"",
+    "modules"=>[
+        ""=>"",
         "news"=>trans('news::admin.title'),
         "articles"=>trans('articles::admin.title'),
         "gallery"=>trans('gallery::admin.title'),
@@ -12,7 +13,8 @@ return [
         "branches" => trans('branches::admin.title'),
         "order" => trans('order::admin.title_tree'),
         "partners" => trans('partners::admin.title'),
-        "leadership" => trans('leaderships::admin.title')
+        "leadership" => trans('leaderships::admin.title'),
+        "credit.customShow" => trans('credit::admin.title_view')
         ],
     "templates"=> ["inner"=>trans('tree::admin.templates.inner'), "index"=>trans('tree::admin.templates.index')]
 ];

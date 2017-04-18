@@ -15,4 +15,10 @@ class IndexController extends Admin
     {
         return new Credit();
     }
+
+    public function list() {
+        $entities = $this->getModel()->pluck('title', 'id');
+
+        return response()->json(['success' => true, 'data' => $entities]);
+    }
 }

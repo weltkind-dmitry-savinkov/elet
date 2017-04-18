@@ -2,6 +2,8 @@
 
 namespace App\Modules\Tree\Http\Controllers\Admin;
 
+use View;
+
 use App\Modules\Admin\Http\Controllers\Admin;
 use App\Modules\Tree\Models\Tree;
 use Illuminate\Support\Facades\Request;
@@ -15,6 +17,33 @@ class IndexController extends Admin
     public function getModel()
     {
         return new Tree();
+    }
+
+    public function edit($id)
+    {
+
+        $records = [];
+        $entity  = $this->getModel()->findOrFail($id);
+
+        View::share('entity', $entity);
+
+        $this->after($entity);
+
+        if ($entity->entity_id) {
+            $explodedModule = explode('.', $entity->module);
+            $repositoryName = ucfirst($explodedModule[0]) . 'Repository';
+            $records        = app()->make($repositoryName)->list();
+        }
+
+        return view(
+            $this->getFormViewName(),
+            [
+                'entity'      => $entity,
+                'routePrefix' => $this->routePrefix,
+                'records'     => $records
+            ]
+        );
+
     }
 
     public function getRules($request, $id = false)
