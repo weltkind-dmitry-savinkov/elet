@@ -15,6 +15,7 @@ return [
         "partners" => trans('partners::admin.title'),
         "leadership" => trans('leaderships::admin.title'),
         "credit.customShow" => trans('credit::admin.title_view'),
+        'credit.calculator' => trans('credit::admin.title_calculator'),
         "articles.customShow" => trans('articles::admin.title_view'),
         ],
     "templates"=> ["inner"=>trans('tree::admin.templates.inner'), "index"=>trans('tree::admin.templates.index')]

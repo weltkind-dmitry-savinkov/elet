@@ -63,10 +63,13 @@
                 <input id="giveCreditBtn" class="button button_high button_block button_lg" type="button" value="{{ trans('credit::index.send_request') }}">
             </div>
             <div class="calc-small__item">
-                <a href="#">{{ trans('credit::index.see_repayment_schedule') }}</a>
+                <a class="fancybox" href="#paymentsInfo">{{ trans('credit::index.see_repayment_schedule') }}</a>
             </div>
         </form>
     </div>
 </div>
+</div>
+<div style="display: none;">
+    <div id="paymentsInfo"></div>
 </div>
 @endsection

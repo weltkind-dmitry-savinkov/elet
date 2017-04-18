@@ -17905,7 +17905,7 @@ Docs & Examples: http://arcticlab.ru/arcticmodal/
             $(this).closest( el ).find( sel_main + ' ' + content ).removeClass( act_cont );
             $(this).closest( el ).find( sel_main + ' ' + content ).eq( active_index ).addClass( act_cont );
             // Call user Function on tab Change
-            if($.isFunction(options.onChange)){
+            if(options && $.isFunction(options.onChange)){
                 options.onChange.call(el);
             }
         });
@@ -17917,7 +17917,7 @@ Docs & Examples: http://arcticlab.ru/arcticmodal/
                 $(this).closest( el ).find( sel_nav + ' ' + tab ).eq( active_index ).addClass( act_tab );
                 $(this).closest( el ).find( sel_main + ' ' + content ).removeClass( act_cont );
                 $(this).closest( el ).find( sel_main + ' ' + content ).eq( active_index ).addClass( act_cont );
-                if($.isFunction(options.onChange)){
+                if(options && $.isFunction(options.onChange)){
                     options.onChange.call(el);
                 }
             }
@@ -17930,7 +17930,7 @@ Docs & Examples: http://arcticlab.ru/arcticmodal/
                 $(this).closest( el ).find( sel_nav + ' ' + tab ).eq( active_index ).addClass( act_tab );
                 $(this).closest( el ).find( sel_main + ' ' + content ).removeClass( act_cont );
                 $(this).closest( el ).find( sel_main + ' ' + content ).eq( active_index ).addClass( act_cont );
-                if($.isFunction(options.onChange)){
+                if(options && $.isFunction(options.onChange)){
                     options.onChange.call(el);
                 }
             }

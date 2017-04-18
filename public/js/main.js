@@ -1,5 +1,32 @@
-function calc () {
-    var form        = $(this).parents('form').get(0);
+var modalInfo = [
+            '<div class="tabs-small">',
+                '<div class="tabs-small__nav-wrapper">',
+                    '<table class="eqNav">',
+                        '<tbody>',
+                            '<tr>',
+                                '<td class="eqTab eqActive">',
+                                    'Аннуитетный платеж',
+                                '</td>',
+                                '<td class="eqTab">',
+                                    'Дифференцированный платеж',
+                                '</td>',
+                            '</tr>',
+                        '</tbody>',
+                    '</table>',
+                '</div>',
+                '<div class="eqMain">',
+                    '<div class="eqContent eqActive">',
+                        '{0}',
+                    '</div>',
+                    '<div class="eqContent">',
+                        '{1}',
+                    '</div>',
+                '</div>',
+            '</div>'
+]
+
+function calc() {
+    var form        = $(this).parents('form').get(0),
         summ        = parseFloat(form.summ.value),
         rate        = parseFloat(form.rate.value),
         maturity    = parseInt(form.slider_side_time.value),
@@ -13,6 +40,20 @@ function calc () {
 
     form.total_month_payment.value = info.totalInfo.totalMonthPayment;
     form.overpayment.value         = info.totalInfo.totalPrecentPayment;
+
+    var annuityPayment      = CreditCalculator.annuityPayment(summ, rate, maturity);
+    var differentialPayment = CreditCalculator.differentialPayment(summ, rate, maturity);
+
+    annuityHtml         = CreditCalculator.renderTable(annuityPayment.paymentsInfo);
+    differentialHtml    = CreditCalculator.renderTable(differentialPayment.paymentsInfo);
+
+    html = Core.formatString(modalInfo.join(''), annuityHtml, differentialHtml);
+
+    $('#paymentsInfo').html(html);
+
+    console.log($('.tabs-small'));
+
+    $('.tabs-small').eqTabs();
 }
 
 $(document).ready(function() {
@@ -301,34 +342,7 @@ $(document).ready(function() {
         annuityHtml         = CreditCalculator.renderTable(annuityPayment.paymentsInfo);
         differentialHtml    = CreditCalculator.renderTable(differentialPayment.paymentsInfo);
 
-        var html = [
-            '<div class="tabs-small">',
-                '<div class="tabs-small__nav-wrapper">',
-                    '<table class="eqNav">',
-                        '<tbody>',
-                            '<tr>',
-                                '<td class="eqTab eqActive">',
-                                    'Аннуитетный платеж',
-                                '</td>',
-                                '<td class="eqTab">',
-                                    'Дифференцированный платеж',
-                                '</td>',
-                            '</tr>',
-                        '</tbody>',
-                    '</table>',
-                '</div>',
-                '<div class="eqMain">',
-                    '<div class="eqContent eqActive">',
-                        '{0}',
-                    '</div>',
-                    '<div class="eqContent">',
-                        '{1}',
-                    '</div>',
-                '</div>',
-            '</div>',
-        ];
-
-        html = Core.formatString(html.join(''), annuityHtml, differentialHtml);
+        html = Core.formatString(modalInfo.join(''), annuityHtml, differentialHtml);
 
         $.fancybox(html, {'padding': 0, 'height': '%', 'width': '', 'overflow': 'none'});
 
@@ -396,5 +410,18 @@ $(document).ready(function() {
         url = Core.urlQs(url, params);
 
         location.href = url;
+    });
+
+    $('#calculatorBtn').on('click', calc);
+
+    $(".fancybox").fancybox({
+        'padding': 0,
+        'height': '%',
+        'width': '',
+        'overflow': 'none',
+        'beforeShow': function () {
+            console.log($('.tabs-small'));
+            $('.tabs-small').eqTabs();
+        }
     });
 });
