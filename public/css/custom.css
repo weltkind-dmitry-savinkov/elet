@@ -92,3 +92,10 @@ td.tabs-small__tab_active img {
 .tabs-small__tab_active .tabs-small__icon-passive {
     opacity: 1;
 }
+
+div.page__content div.layout__content div.alert.alert-info {
+    margin: 0 0 25px;
+    padding: 15px;
+    background-color: #dff0d8;
+    color: #234c24;
+}

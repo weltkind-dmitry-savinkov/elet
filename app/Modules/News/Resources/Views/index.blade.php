@@ -1,9 +1,5 @@
 @extends('layouts.inner')
 
-@section('meta-title')
-    {{ $pageTitle }}
-@endsection
-
 @section('content')
     <div class="news-list">
         @if (count($items))

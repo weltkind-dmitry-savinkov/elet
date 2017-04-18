@@ -43,7 +43,8 @@ class IndexController extends Controller
 
         $this->notify($entity);
 
-        return redirect()->back()->with('message', 'Ваша заявка создана.');
+        return redirect()->back()->with('message', trans('order::index.accepted'));
+
     }
 
     public function getRules($request)
