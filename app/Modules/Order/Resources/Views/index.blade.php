@@ -4,6 +4,7 @@
 <div class="layout__wrapper">
     <div class="layout__content">
         <h1 class="page-title">Заявка на кредит</h1>
+        @include('common.errors')
         <div class="form-main form-main_margin-minus">
             <form action="{{ route('order.store') }}" method="post" novalidate>
                 <div class="form-main__row">
@@ -11,7 +12,7 @@
                         <div class="form-main__item">
                             <div class="form-main__top">
                                 <div class="form-main__label">
-                                    <label for="initials">Имя, фамилия, отчество
+                                    <label for="initials">@lang('order::index.fio')
                                         <span class="color-high">*</span>
                                     </label>
                                 </div>
@@ -39,7 +40,7 @@
                         <div class="form-main__item">
                             <div class="form-main__top">
                                 <div class="form-main__label">
-                                    <label for="area">Область</label>
+                                    <label for="area">@lang('order::index.area')</label>
                                 </div>
                                 <div class="form-main__help">
                                 </div>
@@ -60,7 +61,7 @@
                         <div class="form-main__item">
                             <div class="form-main__top">
                                 <div class="form-main__label">
-                                    <label for="address">Улица, дом, кв</label>
+                                    <label for="address">@lang('order::index.address')</label>
                                 </div>
                                 <div class="form-main__help">
                                 </div>
@@ -87,7 +88,7 @@
                         <div class="form-main__item">
                             <div class="form-main__top">
                                 <div class="form-main__label">
-                                    <label for="birth_date">Дата рождения
+                                    <label for="birth_date">@lang('order::index.birth_date')
                                         <span class="color-high">*</span>
                                     </label>
                                 </div>
@@ -114,7 +115,7 @@
                         <div class="form-main__item">
                             <div class="form-main__top">
                                 <div class="form-main__label">
-                                    <label for="address_city">Город/село</label>
+                                    <label for="address_city">@lang('order::index.city')</label>
                                 </div>
                                 <div class="form-main__help">
                                 </div>
@@ -139,7 +140,7 @@
                         <div class="form-main__item">
                             <div class="form-main__top">
                                 <div class="form-main__label">
-                                    <label for="phone">Телефон
+                                    <label for="phone">@lang('order::index.phone')
                                         <span class="color-high">*</span>
                                     </label>
                                 </div>
@@ -170,7 +171,7 @@
                     <div class="form-main__item">
                         <div class="form-main__top">
                             <div class="form-main__label">
-                                <label for="target">Цель кредита</label>
+                                <label for="target">@lang('order::index.target')</label>
                             </div>
                             <div class="form-main__help">
                             </div>
@@ -198,7 +199,7 @@
                         <div class="form-main__item">
                             <div class="form-main__top">
                                 <div class="form-main__label">
-                                    <label for="amount">Сумма кредита</label>
+                                    <label for="amount">@lang('order::index.amount')</label>
                                 </div>
                                 <div class="form-main__help">
                                 </div>
@@ -246,7 +247,7 @@
                         <div class="form-main__item">
                             <div class="form-main__top">
                                 <div class="form-main__label">
-                                    <label for="month_repayment">Ежемесячная сумма на погашение кредита</label>
+                                    <label for="month_repayment">@lang('order::index.month_payment')</label>
                                 </div>
                                 <div class="form-main__help">
                                 </div>
@@ -272,7 +273,7 @@
                         <div class="form-main__item">
                             <div class="form-main__top">
                                 <div class="form-main__label">
-                                    <label for="passport_series">Серия паспорта
+                                    <label for="passport_series">@lang('order::index.passport_series')
                                         <span class="color-high">*</span>
                                     </label>
                                 </div>
@@ -300,7 +301,7 @@
                         <div class="form-main__item">
                             <div class="form-main__top">
                                 <div class="form-main__label">
-                                    <label for="passport_date">Дата выдачи паспорта
+                                    <label for="passport_date">@lang('order::index.passport_date')
                                         <span class="color-high">*</span>
                                     </label>
                                 </div>
@@ -328,7 +329,7 @@
                         <div class="form-main__item">
                             <div class="form-main__top">
                                 <div class="form-main__label">
-                                    <label for="captcha">Введите защитный код
+                                    <label for="captcha">@lang('order::index.captcha')
                                         <span class="color-high">*</span>
                                     </label>
                                 </div>
@@ -366,7 +367,7 @@
                         <div class="form-main__item">
                             <div class="form-main__top">
                                 <div class="form-main__label">
-                                    <label for="request_time">Срок</label>
+                                    <label for="request_time">@lang('order::index.request_time')</label>
                                 </div>
                                 <div class="form-main__help">
                                 </div>
@@ -405,7 +406,7 @@
                         <div class="form-main__item">
                             <div class="form-main__top">
                                 <div class="form-main__label">
-                                    <label for="vat_id">ИНН</label>
+                                    <label for="vat_id">@lang('order::index.inn')</label>
                                 </div>
                                 <div class="form-main__help">
                                 </div>
@@ -425,7 +426,7 @@
                         <div class="form-main__item">
                             <div class="form-main__top">
                                 <div class="form-main__label">
-                                    <label for="passport_number">Номер паспорта
+                                    <label for="passport_number">@lang('order::index.passport_number')
                                         <span class="color-high">*</span>
                                     </label>
                                 </div>
@@ -453,7 +454,7 @@
                         <div class="form-main__item">
                             <div class="form-main__top">
                                 <div class="form-main__label">
-                                    <label for="passport_issuer">Кем выдан паспорт
+                                    <label for="passport_issuer">@lang('order::index.passport_issuer')
                                         <span class="color-high">*</span>
                                     </label>
                                 </div>
@@ -480,10 +481,10 @@
                         </div>
                         <div class="form-main__item form-main__item_buttons cf">
                             <div class="form-main__left">
-                                <input class="button button_reset" type="reset" value="Сбросить форму">
+                                <input class="button button_reset" type="reset" value="{{ trans('order::index.reset') }}">
                             </div>
                             <div class="form-main__right">
-                                <input class="button button_high button_lg" type="submit" value="Отправить заявку">
+                                <input class="button button_high button_lg" type="submit" value="{{ trans('order::index.send') }}">
                             </div>
                         </div>
                     </div>

@@ -17,6 +17,6 @@ Route::group(['prefix' => config('cms.uri')], function () {
 });
 
 Route::group(['prefix' => 'order'], function() {
-    Route::get('/', 'IndexController@index')->name('order.main');
+    Route::get('/', 'IndexController@index')->name('order.main')->middleware('page');
     Route::post('/store', 'IndexController@store')->name('order.store');
 });
