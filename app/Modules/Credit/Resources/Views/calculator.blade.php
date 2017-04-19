@@ -3,7 +3,6 @@
 @section('content')
 
 <div class="layout__content">
-    <h1 class="page-title">Калькулятор</h1>
     <div class="calc-small calc-small_inline">
         <form action="#">
             <div class="calc-small__row">
