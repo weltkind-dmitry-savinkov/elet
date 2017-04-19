@@ -85,7 +85,12 @@
                                 <a class="button button_main button_block button_lg" id="calculateBtn" href="#">{{ trans('credit::index.calculate') }}</a>
                             </div>
                             <div class="range-block__right">
-                                <a id="giveCreditBtn" class="button button_high button_block button_lg" href="#">{{ trans('credit::index.get') }}</a>
+                                <button
+                                    id="giveCreditBtn"
+                                    class="button button_high button_block button_lg"
+                                    type="button">
+                                    {{ trans('credit::index.get') }}
+                                </button>
                             </div>
                         </div>
                     </div>

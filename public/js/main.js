@@ -51,8 +51,6 @@ function calc() {
 
     $('#paymentsInfo').html(html);
 
-    console.log($('.tabs-small'));
-
     $('.tabs-small').eqTabs();
 }
 
@@ -385,25 +383,17 @@ $(document).ready(function() {
     $('#smallCalc :input').on('blur', calc);
 
     $('#giveCreditBtn').on('click', function () {
-        var params = {
-            'amount': parseFloat($('#slider_summ_value').text()),
-            'maturity': parseInt($('#slider_time').val())
-        };
+        var params = {};
 
-        var url = location.origin + '/order';
-
-        url = Core.urlQs(url, params);
-
-        location.href = url;
-    });
-
-    // We don't know what reuse components :(
-
-    $('#giveCreditBtn').on('click', function () {
-        var params = {
-            'amount': parseFloat($('#summ').val()),
-            'maturity': parseInt($('#slider_side_time').val())
-        };
+        if ($('#slider_summ_value').length && $('#slider_time').length) {
+            params['amount']   = parseFloat($('#slider_summ_value').text()),
+            params['maturity'] = parseInt($('#slider_time').val())
+        } else if ($('#summ').length && $('#slider_side_time').length) {
+            params['amount']   = parseFloat($('#summ').val()),
+            params['maturity'] = parseInt($('#slider_side_time').val())
+        } else {
+            return false;
+        }
 
         var url = location.origin + '/order';
 
@@ -420,7 +410,6 @@ $(document).ready(function() {
         'width': '',
         'overflow': 'none',
         'beforeShow': function () {
-            console.log($('.tabs-small'));
             $('.tabs-small').eqTabs();
         }
     });
