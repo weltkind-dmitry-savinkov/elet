@@ -32,6 +32,8 @@ Route::localizedGroup(function () {
             ->middleware('page');
     });
 
-    Route::get('/calculator', 'CalculatorController@index')->name('credit.calculator');
+    Route::get('/calculator', 'CalculatorController@index')
+        ->name('credit.calculator')
+        ->middleware('page');
 
 });

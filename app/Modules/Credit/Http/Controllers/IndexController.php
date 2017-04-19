@@ -16,10 +16,10 @@ class IndexController extends Controller
     }
 
     public function index(){
-        Breadcrumbs::add(
+        /*Breadcrumbs::add(
             trans('credit::index.products'),
             route('credit.index')
-        );
+        );*/
 
         return view(
             $this->getIndexViewName(),
@@ -35,7 +35,7 @@ class IndexController extends Controller
 
         $credit = $this->getModel()->findOrFail($id);
 
-        Breadcrumbs::add(
+        /*Breadcrumbs::add(
             trans('credit::index.title'),
             route('credit.index')
         );
@@ -43,7 +43,7 @@ class IndexController extends Controller
         Breadcrumbs::add(
             $credit->title,
             route('credit.customShow', ['id' => $credit->id])
-        );
+        );*/
 
         return view(
             $this->getShowViewName(),
