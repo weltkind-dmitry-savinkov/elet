@@ -23,19 +23,28 @@ class Breadcrumbs
 
             $routeName = $request->route()->getName();
 
-            if (strpos($routeName, '.') > -1 && strpos($routeName, 'customShow') > -1) {
-                $entity_id = (int)$request->route()->getParameter('id');
+            if (strpos($routeName, '.') > -1) {
 
-                if ($entity_id) {
-                    //dd($slug);
-                    $item = Tree::where('module', $routeName)->where('entity_id', $entity_id)->first();
+                list($module, $action) = explode('.', $routeName);
 
-                    $page = $item ? $item : $page;
+                if ($action && $action == 'customShow') {
+                    $entity_id = (int)$request->route()->getParameter('id');
+
+                    $item = Tree::where('module', $routeName)
+                        ->where('entity_id', $entity_id)
+                        ->first();
+                } else {
+                     $item = Tree::where('module', $routeName)->first();
                 }
+
+                $page = $item ? $item : $page;
+
+                $request->attributes->add(['page' => $page]);
+
             }
 
             $ancestors = $page->ancestorsAndSelf()->get();
-            //dd($ancestors);
+
             foreach ($ancestors as $ancestor) {
 
                 if ($ancestor->slug) {
