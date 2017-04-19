@@ -1,6 +1,9 @@
 <?php
 namespace App\Modules\Admin\Http\ViewComposers;
 
+use Auth;
+use Permission;
+
 use Illuminate\View\View;
 use Caffeinated\Modules\Facades\Module;
 
@@ -21,12 +24,21 @@ class MenuComposer
             return;
         }
 
+        $user = Auth::user();
+
         foreach ($modules as $module => $info) {
 
             $config = module_config('menu', strtolower($module));
+
             if (isset($config['groups'])) {
 
                 $groups = array_merge($groups, $config['groups']);
+            }
+
+            $isAllowed = Permission::allowed($user, $info['slug'], 'read');
+
+            if (!$isAllowed) {
+                continue;
             }
 
             if (isset($config['items'])) {

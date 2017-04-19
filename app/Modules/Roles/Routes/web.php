@@ -11,8 +11,6 @@
 |
 */
 
-Route::group(['prefix' => 'roles'], function() {
-    Route::get('/', function() {
-        dd('This is the Roles module index page. Build something great!');
-    });
+Route::group(['prefix' => config('cms.uri')], function() {
+    Route::resource('roles', 'Admin\IndexController');
 });

@@ -2,20 +2,12 @@
 
 namespace App\Modules\Roles\Providers;
 
-use Caffeinated\Modules\Support\ServiceProvider;
+use App\Providers\ModuleProvider;
+use App\Modules\Roles\Permission;
 
-class ModuleServiceProvider extends ServiceProvider
+class ModuleServiceProvider extends ModuleProvider
 {
-    /**
-     * Bootstrap the module services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        $this->loadTranslationsFrom(__DIR__.'/../Resources/Lang', 'roles');
-        $this->loadViewsFrom(__DIR__.'/../Resources/Views', 'roles');
-    }
+    public $module = 'roles';
 
     /**
      * Register the module services.
@@ -25,5 +17,9 @@ class ModuleServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+
+        $this->app->bind('PermissionService', function () {
+            return new Permission();
+        });
     }
 }
