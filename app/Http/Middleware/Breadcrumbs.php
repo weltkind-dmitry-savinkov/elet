@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use App\Modules\Tree\Helpers\Breadcrumbs as Facade;
+use App\Modules\Tree\Models\Tree;
 
 class Breadcrumbs
 {
@@ -19,8 +20,22 @@ class Breadcrumbs
         $page = $request->get('page');
 
         if ($page) {
-            $ancestors = $page->ancestorsAndSelf()->get();
 
+            $routeName = $request->route()->getName();
+
+            if (strpos($routeName, '.') > -1 && strpos($routeName, 'customShow') > -1) {
+                $entity_id = (int)$request->route()->getParameter('id');
+
+                if ($entity_id) {
+                    //dd($slug);
+                    $item = Tree::where('module', $routeName)->where('entity_id', $entity_id)->first();
+
+                    $page = $item ? $item : $page;
+                }
+            }
+
+            $ancestors = $page->ancestorsAndSelf()->get();
+            //dd($ancestors);
             foreach ($ancestors as $ancestor) {
 
                 if ($ancestor->slug) {
