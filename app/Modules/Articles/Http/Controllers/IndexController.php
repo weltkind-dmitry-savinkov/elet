@@ -20,7 +20,8 @@ class IndexController extends Controller
             $this->getShowViewName(),
             [
                 'routePrefix' => $this->routePrefix,
-                'entity' => $entity
+                'entity' => $entity,
+                //'pageTitle' => $entity->title
             ]
         );
     }
