@@ -93,11 +93,19 @@ td.tabs-small__tab_active img {
     opacity: 1;
 }
 
-div.page__content div.layout__content div.alert.alert-info {
+div.page__content div.layout__content div.alert {
     margin: 0 0 25px;
     padding: 15px;
+}
+
+div.page__content div.layout__content div.alert.alert-info {
     background-color: #dff0d8;
     color: #234c24;
+}
+
+div.page__content div.layout__content div.alert.alert-danger {
+    background-color: #f2cdcd;
+    color: #a94442;
 }
 
 .eqTab {
