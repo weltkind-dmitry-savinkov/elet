@@ -1,9 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.inner')
 
-@section('page_content')
+@section('content')
 <div class="layout__wrapper">
     <div class="layout__content">
-        <h1 class="page-title">Заявка на кредит</h1>
         @include('common.errors')
         <div class="form-main form-main_margin-minus">
             <form action="{{ route('order.store') }}" method="post" novalidate>
