@@ -1,5 +1,9 @@
 @extends('admin::admin.form')
 
+@section('title')
+    <h2><a href="{!! URL::route($routePrefix.'index') !!}">Партнеры</a></h2>
+@endsection
+
 @section('form_content')
     {!! BootForm::open(
         [

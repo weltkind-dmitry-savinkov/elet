@@ -1,5 +1,9 @@
 @extends('admin::admin.index')
 
+@section('title')
+    <h2>Партнеры</h2>
+@endsection
+
 @section('th')
     <th>@sortablelink('title', trans('partners::fields.title'))</th>
     <th>@sortablelink('position', trans('partners::fields.url'))</th>
