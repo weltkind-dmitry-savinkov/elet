@@ -14,8 +14,8 @@ return [
         'thumbs' => [
             [
                 'path' => 'full/',
-                'width' => 1208,
-                'height' => false,
+                'width' => 596,
+                'height' => 380,
                 'full' => true
             ],
 
