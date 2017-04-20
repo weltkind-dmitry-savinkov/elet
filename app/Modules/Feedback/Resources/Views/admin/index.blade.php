@@ -6,6 +6,10 @@
     </div>
 @endsection
 
+@section('title')
+    <h2>Обратная связь</h2>
+@endsection
+
 @section('additing_block')
 <div class="box box-primary box-filters">
         <div class="box-header"></div>
