@@ -31,8 +31,10 @@ class IndexController extends Admin
 
         if ($entity->entity_id) {
             $explodedModule = explode('.', $entity->module);
-            $repositoryName = ucfirst($explodedModule[0]) . 'Repository';
-            $records        = app()->make($repositoryName)->list();
+            if ($explodedModule[0]) {
+                $repositoryName = ucfirst($explodedModule[0]) . 'Repository';
+                $records        = app()->make($repositoryName)->list();
+            }
         }
 
         return view(
