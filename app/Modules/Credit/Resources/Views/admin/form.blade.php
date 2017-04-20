@@ -13,13 +13,13 @@
     !!}
 
     <div class="col-md-6">
-        {!! BootForm::text('title', trans('credit::admin.name')) !!}
+        {!! BootForm::text('title', 'Наименование') !!}
     </div>
 
     <div class="col-md-6">
         {!! BootForm::number(
                 'interest_rate',
-                trans('credit::admin.rate'),
+                'Процетная ставка',
                 $entity->interest_rate ? $entity->interest_rate : '',
                 ['step' => 'any']
             )
@@ -42,21 +42,10 @@
         )
     </div>
 
-    <div class="col-md-3">
-        @include(
-            'admin::common.forms.image',
-            [
-                'entity'      => $entity,
-                'routePrefix' => $routePrefix,
-                'field'       => 'icon_active'
-            ]
-        )
-    </div>
-
     <div class="col-md-12">
         {!! BootForm::textarea(
                 'description',
-                trans('creadi::admin.description'),
+                'Описание',
                 $entity->description ? $entity->description : '',
                 ['id' => 'creditDescription']
             )

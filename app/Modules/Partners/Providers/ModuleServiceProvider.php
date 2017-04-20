@@ -16,4 +16,11 @@ class ModuleServiceProvider extends ModuleProvider
     {
         $this->app->register(RouteServiceProvider::class);
     }
+
+    public function boot()
+    {
+        parent::boot();
+
+        \App::make('translator')->addNamespace($this->module, __DIR__.'/../Resources/Lang');
+    }
 }
