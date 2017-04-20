@@ -120,7 +120,6 @@
             </div>
         </div>
     </div>
-    <div class="page__buffer"></div>
     @include('parts.footer')
     </div>
 </div>

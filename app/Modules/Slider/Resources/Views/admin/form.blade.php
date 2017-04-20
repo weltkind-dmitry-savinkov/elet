@@ -22,7 +22,7 @@
             'entity'        =>$entity,
             'routePrefix'   =>$routePrefix,
             'field'         =>'image',
-            'helpBlock'     => 'Рекомендуемые размеры 1208х465'
+            'helpBlock'     => 'Рекомендуемые размеры 596x380'
             ])
 
     </div>

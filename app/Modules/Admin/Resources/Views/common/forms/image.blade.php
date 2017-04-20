@@ -26,7 +26,18 @@
 
 <div class="images-list">
 
-    {!! BootForm::label(trans('admin::admin.image')) !!}
+    @if(isset($imageTitle))
+        {!! BootForm::label($imageTitle) !!}
+        @if(isset($helpBlock))
+            <p class="help-block">{{ $helpBlock }}</p>
+        @endif
+    @else
+        {!! BootForm::label(trans('admin::admin.image')) !!}
+        @if(isset($helpBlock))
+            <p class="help-block">{!! $helpBlock  !!}</p>
+        @endif
+    @endif
+
     <div class="clearfix"></div>
 
     @if ($entity->$field)
