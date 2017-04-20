@@ -19,5 +19,7 @@ return [
     'amount_overpayment_loan' => 'Сумма переплаты по кредиту',
     'see_repayment_schedule' => 'Ознакомиться с графиком погашения',
     'send_request' => 'Отправить заявку',
-    'products' => 'Кредитные продукты'
+    'products' => 'Кредитные продукты',
+    'result' => 'Результат',
+    'support' => 'Справочный центр'
 ];
