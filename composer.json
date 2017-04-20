@@ -14,7 +14,7 @@
         "unisharp/laravel-ckeditor":"4.5.7",
         "unisharp/laravel-filemanager":"1.6.2",
         "intervention/image":"2.3.8",
-        "arcanedev/localization": "*",
+        "arcanedev/localization": "1.0.0",
         "baum/baum": "~1.1",
         "mews/captcha": "~2.0",
         "bariew/phpquery": "^1.0"
