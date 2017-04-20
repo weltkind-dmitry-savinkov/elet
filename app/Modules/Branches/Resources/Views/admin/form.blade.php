@@ -1,5 +1,9 @@
 @extends('admin::admin.form')
 
+@section('title')
+    <h2><a href="{!! URL::route($routePrefix.'index') !!}">Филиальная сеть</a></h2>
+@endsection
+
 @section('form_content')
     {!! BootForm::open([
             'model'        => $entity,
@@ -11,31 +15,31 @@
     !!}
 
     <div class="col-md-6">
-        {!! BootForm::text('title', trans('branches::admin.name')) !!}
+        {!! BootForm::text('title', 'Наименование') !!}
     </div>
 
     <div class="col-md-6">
         {!! BootForm::select(
             'region_id',
-            trans('branches::admin.region'),
+            'Область',
             $regions
         ) !!}
     </div>
 
     <div class="col-md-6">
-        {!! BootForm::text('phone', trans('branches::admin.phone')) !!}
+        {!! BootForm::text('phone', 'Телефон') !!}
     </div>
 
     <div class="col-md-6">
-        {!! BootForm::text('operating_time', trans('branches::admin.operating_time')) !!}
+        {!! BootForm::text('operating_time', 'Время работы') !!}
     </div>
 
     <div class="col-md-6">
-        {!! BootForm::textarea('address', trans('branches::admin.address')) !!}
+        {!! BootForm::textarea('address', 'Адрес') !!}
     </div>
 
     <div class="col-md-6">
-        <label for="work_days">{{trans('branches::admin.work_days')}}</label>
+        <label for="work_days">Дни работы</label>
         <div>
             <select
                 class="form-control"
@@ -56,7 +60,7 @@
     </div>
 
     <div class="col-md-12">
-        <label for="" class="control-label">{{ trans('branches::admin.position_map') }}</label>
+        <label for="" class="control-label">Положение на карте</label>
         <div style="width: 100%; height: 400px" id="map"></div>
     </div>
     {!! BootForm::hidden(

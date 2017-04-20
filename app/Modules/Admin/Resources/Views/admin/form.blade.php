@@ -1,7 +1,7 @@
 @extends('admin::layouts.app')
 
 @section('title')
-    <h2>Кредитные продукты</h2>
+    <h2><a href="{!! URL::route($routePrefix.'index') !!}">{{$title}}</a></h2>
 @endsection
 
 @section('form_js')
