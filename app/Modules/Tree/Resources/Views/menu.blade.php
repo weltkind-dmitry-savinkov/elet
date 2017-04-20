@@ -14,7 +14,7 @@
                                     <ul class="submenu-main">
                                         @foreach($item->children as $item)
                                             <li class="submenu-main__item {{ count($item->children) ? 'submenu-main__item_arrow' : '' }}">
-                                                @if($item->entity_id)
+                                                @if($item->module && $item->entity_id)
                                                     <a
                                                         class="submenu-main__link"
                                                         href="{!! URL::route($item->module, ['id' => $item->entity_id]) !!}"
