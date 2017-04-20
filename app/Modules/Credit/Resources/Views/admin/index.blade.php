@@ -1,5 +1,9 @@
 @extends('admin::admin.index')
 
+@section('title')
+    <h2>Кредитные продукты</h2>
+@endsection
+
 @section('th')
     <th>@sortablelink('title', 'Наименование')</th>
     <th>@sortablelink('interest_rate', 'Процетная ставка')</th>

@@ -1,5 +1,9 @@
 @extends('admin::layouts.app')
 
+@section('title')
+    <h2>Кредитные продукты</h2>
+@endsection
+
 @section('form_js')
 @include('admin::common.forms.datepicker', ['fields'=>[['id'=>'date', 'date'=>date('Y-m-d')]]])
 @include('admin::common.forms.ckeditor', [
