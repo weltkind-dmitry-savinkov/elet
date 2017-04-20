@@ -1,7 +1,11 @@
 @extends('admin::admin.index')
 
+@section('title')
+    <h2>Справочник регионов</h2>
+@endsection
+
 @section('th')
-    <th>@sortablelink('title', trans('branches::admin.name'))</th>    <th>@lang('admin::admin.control')</th>
+    <th>@sortablelink('title', 'Наименование')</th>    <th>@lang('admin::admin.control')</th>
 @endsection
 
 @section('td')
