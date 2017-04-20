@@ -7,7 +7,7 @@
 @endsection
 
 @section('title')
-    <h2><a href="{!! URL::route($routePrefix.'index') !!}">{{$title}}</a></h2>
+    <h2><a href="{!! URL::route($routePrefix.'index') !!}">Обратная связь</a></h2>
 @endsection
 
 @section('content')
