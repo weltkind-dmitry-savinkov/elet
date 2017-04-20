@@ -2,11 +2,15 @@
 
 namespace App\Modules\Users\Http\Controllers\Admin;
 
+use View;
+
+use Illuminate\Support\Facades\Auth;
+
 use  App\Modules\Users\Models\User;
 
-
 use App\Modules\Admin\Http\Controllers\Admin;
-use Illuminate\Support\Facades\Auth;
+
+use App\Modules\Roles\Models\Role;
 
 
 class IndexController extends Admin
@@ -31,6 +35,33 @@ class IndexController extends Admin
         }
 
         return $rules;
+    }
+
+    public function create(){
+
+        $entity = $this->getModel();
+        $roles  = Role::all()->pluck('name', 'id');
+
+        $this->after($entity);
+
+        return view($this->getFormViewName(), ['entity'=>$entity, 'roles' => $roles]);
+    }
+
+    public function edit($id)
+    {
+
+        $entity = $this->getModel()->findOrFail($id);
+        $roles  = Role::all()->pluck('name', 'id');
+
+        View::share('entity', $entity);
+
+        $this->after($entity);
+
+        return view(
+            $this->getFormViewName(),
+            ['entity'=>$entity, 'routePrefix'=>$this->routePrefix, 'roles' => $roles]
+        );
+
     }
 
     public function destroy($id){

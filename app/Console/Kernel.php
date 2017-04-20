@@ -13,7 +13,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \App\Modules\Rates\Console\RatesParse::class
+        \App\Modules\Rates\Console\RatesParse::class,
+        \App\Modules\Roles\Console\AddModule::class,
+        \App\Modules\Roles\Console\AddModules::class
     ];
 
     /**

@@ -32,6 +32,9 @@
         @endif
     </div>
 
+    <div class="col-md-6">
+        {!! BootForm::select('role_id', trans('roles::admin.form.label'), $roles, $entity->role_id) !!}
+    </div>
 
     <div class="col-md-12">
         {!! BootForm::submit(trans('admin::admin.save')) !!}

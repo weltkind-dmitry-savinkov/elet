@@ -267,7 +267,7 @@ return [
         'Date' =>  App\Facades\Date::class,
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
 
-
+        'Permission' => App\Modules\Roles\Facades\Permission::class,
 
 
 

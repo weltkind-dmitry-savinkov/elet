@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Modules\Blog\Models\Blog;
 use Kyslik\ColumnSortable\Sortable;
+use App\Modules\Roles\Models\Role;
 
 class User extends Authenticatable
 {
@@ -17,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role_id'
     ];
 
     /**
@@ -61,6 +62,11 @@ class User extends Authenticatable
     public function scopeOrder($query)
     {
         return $query;
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id');
     }
 
 }

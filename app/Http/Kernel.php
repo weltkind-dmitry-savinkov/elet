@@ -59,6 +59,8 @@ class Kernel extends HttpKernel
         'breadcrumbs' => \App\Http\Middleware\Breadcrumbs::class,
         'og' => \App\Http\Middleware\Og::class,
         'meta' => \App\Http\Middleware\Meta::class,
+
+        'verification' => \App\Modules\Roles\Http\Middleware\Verification::class,
     ];
 
     use \Arcanedev\Localization\Traits\LocalizationKernelTrait;
