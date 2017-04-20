@@ -3,7 +3,8 @@
         <div class="block-info">
             <div class="block-info__left">
                 <div class="info-small">
-                    <div class="info-small__title">Справочный центр
+                    <div class="info-small__title">
+                        {{ trans('credit::index.support') }}
                     </div>
                     <a class="info-small__link" href="tel:+996770551100">
                         <img class="info-small__icon" src="img/phone-orange.png" title alt="Тел:">
