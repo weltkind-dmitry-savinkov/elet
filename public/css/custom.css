@@ -82,7 +82,7 @@ div.exchange__flag {
 }
 
 div.tabs-small__title {
-    word-break: break-all;
+    word-break: break-word;
 }
 
 td.tabs-small__tab_active img {
@@ -119,4 +119,8 @@ div.page__content div.layout__content div.alert.alert-danger {
 
 .eqContent.eqActive {
     display: block;
+}
+
+.tabs-small__title {
+    font-size: 53px;
 }
